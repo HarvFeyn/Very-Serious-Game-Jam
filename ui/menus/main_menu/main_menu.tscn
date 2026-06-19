@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://qb46qxebxrvr"]
+
+[ext_resource type="Script" uid="uid://i5nerum1fsj5" path="res://ui/menus/main_menu/main_menu.gd" id="1_txwgg"]
+[ext_resource type="Theme" uid="uid://do17k3k7dl5m8" path="res://shared/themes/global_theme.tres" id="2_j3h1s"]
+[ext_resource type="PackedScene" uid="uid://do6rp836y5wbe" path="res://ui/components/custom_button/CustomButton.tscn" id="3_igis3"]
+[ext_resource type="AudioStream" uid="uid://cput2i2aok1mr" path="res://audio/SFX/Validation-1.wav" id="4_m57jf"]
+
+[node name="MainMenu" type="Control" unique_id=30705434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_txwgg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=462466762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5411765, 0.7529412, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=480564511]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_j3h1s")
+theme_override_constants/separation = 50
+
+[node name="Play" parent="VBoxContainer" unique_id=1373872495 instance=ExtResource("3_igis3")]
+layout_mode = 2
+text = "Play"
+click_sound = ExtResource("4_m57jf")
+
+[node name="Options" parent="VBoxContainer" unique_id=1228806744 instance=ExtResource("3_igis3")]
+layout_mode = 2
+text = "Options"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

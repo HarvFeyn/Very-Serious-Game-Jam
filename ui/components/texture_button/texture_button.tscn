@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dcs65hbt8ciin"]
+
+[ext_resource type="Texture2D" uid="uid://c1xe4y51j2q8j" path="res://ui/components/texture_button/gear.png" id="1_pq510"]
+[ext_resource type="Script" uid="uid://dwa4qhdtv5vj3" path="res://ui/components/texture_button/texture_button.gd" id="2_fklgk"]
+
+[node name="TextureButton" type="TextureButton" unique_id=1687232378]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_top = 27.0
+offset_right = -35.0
+offset_bottom = 91.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_pq510")
+texture_pressed = ExtResource("1_pq510")
+texture_hover = ExtResource("1_pq510")
+texture_focused = ExtResource("1_pq510")
+script = ExtResource("2_fklgk")

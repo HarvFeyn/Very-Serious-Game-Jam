@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bflvanhdyx7q6"]
+
+[ext_resource type="Script" uid="uid://dadbds68uhxgp" path="res://core/game/game.gd" id="1_sul5r"]
+[ext_resource type="Texture2D" uid="uid://c1xe4y51j2q8j" path="res://ui/components/texture_button/gear.png" id="2_0sr1o"]
+[ext_resource type="Script" uid="uid://dwa4qhdtv5vj3" path="res://ui/components/texture_button/texture_button.gd" id="4_kelw5"]
+
+[node name="Game" type="Node" unique_id=2093756505]
+script = ExtResource("1_sul5r")
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1457521581]
+
+[node name="TextureButton" type="TextureButton" parent="PauseLayer" unique_id=1185807373]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_top = 27.0
+offset_right = -35.0
+offset_bottom = 91.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_0sr1o")
+script = ExtResource("4_kelw5")
+
+[connection signal="pressed" from="PauseLayer/TextureButton" to="." method="_on_texture_button_pressed"]

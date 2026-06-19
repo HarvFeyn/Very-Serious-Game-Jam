@@ -1,0 +1,7 @@
+# res://scripts/items/item_data.gd
+class_name ItemData
+extends Resource
+
+@export var item_name: String = ""
+@export var icon: Texture2D
+@export var description: String = ""

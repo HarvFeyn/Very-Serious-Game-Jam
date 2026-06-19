@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cnrq0aujensup"]
+
+[ext_resource type="Script" uid="uid://cl4pjh7yiq3rr" path="res://core/main/main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=389778593]
+script = ExtResource("1_ig7tw")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1024819005]
+
+[node name="SceneContainer" type="Node" parent="." unique_id=598992022]

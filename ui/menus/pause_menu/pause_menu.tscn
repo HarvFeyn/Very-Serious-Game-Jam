@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c7pprt5jct3ma"]
+
+[ext_resource type="Script" uid="uid://8bwg2ao2t4nh" path="res://ui/menus/pause_menu/pause_menu.gd" id="1_2gx4h"]
+[ext_resource type="Theme" uid="uid://do17k3k7dl5m8" path="res://shared/themes/global_theme.tres" id="2_cid4m"]
+[ext_resource type="PackedScene" uid="uid://do6rp836y5wbe" path="res://ui/components/custom_button/CustomButton.tscn" id="3_yio2i"]
+
+[node name="PauseMenu" type="Control" unique_id=838795636]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2gx4h")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1814571]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=45788492]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -92.5
+offset_right = 87.0
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cid4m")
+theme_override_constants/separation = 50
+
+[node name="Pause" type="Label" parent="Background/VBoxContainer" unique_id=1370677949]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="ResumeButton" parent="Background/VBoxContainer" unique_id=1373872495 instance=ExtResource("3_yio2i")]
+layout_mode = 2
+text = "Resume game"
+
+[node name="OptionsButton" parent="Background/VBoxContainer" unique_id=1774416702 instance=ExtResource("3_yio2i")]
+layout_mode = 2
+text = "Options"
+
+[node name="MainMenuButton" parent="Background/VBoxContainer" unique_id=2068799293 instance=ExtResource("3_yio2i")]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="OptionsContainer" type="Control" parent="Background" unique_id=1409855327]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Background/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://do6rp836y5wbe"]
+
+[ext_resource type="Script" uid="uid://duahyr5clunpx" path="res://ui/components/custom_button/custom_button.gd" id="1_j5e1c"]
+
+[node name="CustomButton" type="Button" unique_id=1373872495]
+script = ExtResource("1_j5e1c")
