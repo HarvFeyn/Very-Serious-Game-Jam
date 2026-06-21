@@ -21,7 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.5411765, 0.7529412, 1, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=480564511]
 layout_mode = 1
@@ -48,5 +47,10 @@ click_sound = ExtResource("4_m57jf")
 layout_mode = 2
 text = "Options"
 
+[node name="Credits" parent="VBoxContainer" unique_id=1611530577 instance=ExtResource("3_igis3")]
+layout_mode = 2
+text = "Credits"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

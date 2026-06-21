@@ -1,4 +1,3 @@
-# settings_button.gd
 class_name SettingsButton
 extends TextureButton
 

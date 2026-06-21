@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c1tysqhvdc33w"]
+
+[ext_resource type="PackedScene" uid="uid://dbm7gqyaousm4" path="res://entities/player/player.tscn" id="1_jg112"]
+[ext_resource type="PackedScene" uid="uid://colnnt376ipuu" path="res://entities/environement/wall/wall.tscn" id="2_5rh8t"]
+[ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_gwj6y"]
+[ext_resource type="Script" uid="uid://dx53nf4b3r7op" path="res://levels/testLevel/canvas_modulate.gd" id="4_v70so"]
+[ext_resource type="PackedScene" uid="uid://dqs7m44gelr3u" path="res://entities/environement/powerWheel/power_wheel.tscn" id="5_6g68q"]
+[ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="6_8awyl"]
+
+[node name="TestLevel" type="Node2D" unique_id=1424034451]
+
+[node name="room1" type="ColorRect" parent="." unique_id=273953408]
+custom_minimum_size = Vector2(1920, 680)
+offset_top = -10.0
+offset_right = 1920.0
+offset_bottom = 670.0
+color = Color(0.54901963, 1, 1, 1)
+
+[node name="room2" type="ColorRect" parent="." unique_id=1000670994]
+custom_minimum_size = Vector2(1920, 640)
+offset_left = 1920.0
+offset_top = -10.0
+offset_right = 3840.0
+offset_bottom = 670.0
+color = Color(1, 0.6049843, 0.4979664, 1)
+
+[node name="Player" parent="." unique_id=2145889706 instance=ExtResource("1_jg112")]
+position = Vector2(132, 527)
+
+[node name="WallLeft" parent="." unique_id=274106288 instance=ExtResource("2_5rh8t")]
+position = Vector2(0, 301)
+
+[node name="WallRight" parent="." unique_id=1930962125 instance=ExtResource("2_5rh8t")]
+position = Vector2(3846, 335)
+
+[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("3_gwj6y")]
+position = Vector2(1922, 317)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=171718979]
+script = ExtResource("4_v70so")
+
+[node name="PowerWheel" parent="." unique_id=1829818611 instance=ExtResource("5_6g68q")]
+position = Vector2(290, 482)
+
+[node name="AlarmLight2" parent="." unique_id=818889376 instance=ExtResource("6_8awyl")]
+position = Vector2(629, 180)
+energy = 1.5
+
+[node name="AlarmLight" parent="." unique_id=1333601977 instance=ExtResource("6_8awyl")]
+position = Vector2(1402, 180)
+energy = 1.5

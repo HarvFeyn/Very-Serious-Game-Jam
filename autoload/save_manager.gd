@@ -1,4 +1,3 @@
-# save_manager.gd
 extends Node
 
 const SAVE_PATH: String = "user://settings.cfg"

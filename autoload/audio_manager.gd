@@ -35,7 +35,6 @@ func set_music_state(state: MusicEnums.MusicState) -> void:
 	if _interactive_stream == null:
 		push_error("AudioManager: aucun AudioStreamInteractive chargé !")
 		return
-	# Récupère le playback et demande la transition
 	var playback: AudioStreamPlaybackInteractive = \
 		_music_player.get_stream_playback() as AudioStreamPlaybackInteractive
 	if playback == null:

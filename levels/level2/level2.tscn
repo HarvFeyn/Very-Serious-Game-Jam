@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dlv7u0e2agwgi"]
+
+[ext_resource type="Script" uid="uid://cryp6n60m4j4d" path="res://levels/level/level.gd" id="1_tr3t4"]
+[ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="2_5x1h8"]
+[ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="2_mh2fd"]
+
+[node name="Level2" type="Node2D" unique_id=1041921582]
+script = ExtResource("1_tr3t4")
+
+[node name="Room" type="ColorRect" parent="." unique_id=1219190314]
+custom_minimum_size = Vector2(1920, 680)
+offset_top = -10.0
+offset_right = 1920.0
+offset_bottom = 670.0
+color = Color(0.9680498, 0.9101414, 0.7420509, 1)
+
+[node name="SpawnPointLeftDoor" type="Marker2D" parent="." unique_id=647309201]
+position = Vector2(0, 630)
+script = ExtResource("2_5x1h8")
+walk_in_direction = Vector2(120, 0)
+
+[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("2_mh2fd")]
+position = Vector2(0, 326)
+walk_in_offset = Vector2(-100, 0)

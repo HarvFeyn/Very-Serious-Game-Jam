@@ -1,4 +1,3 @@
-# settings_manager.gd (AutoLoad)
 extends Node
 
 const SETTINGS_KEY: String = "settings"

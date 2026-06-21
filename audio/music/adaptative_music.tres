@@ -1,24 +1,16 @@
 [gd_resource type="AudioStreamInteractive" format=3 uid="uid://34ppy3p8vxax"]
 
-[ext_resource type="AudioStream" uid="uid://d2dwk4l0rjmjd" path="res://audio/music/ThemePart1.wav" id="1_knb5w"]
-[ext_resource type="AudioStream" uid="uid://byl0ynel8py52" path="res://audio/music/ThemePart2.wav" id="2_o4cgq"]
-[ext_resource type="AudioStream" uid="uid://y6j7rpbu3fvn" path="res://audio/music/ThemePart3.wav" id="3_o4cgq"]
-[ext_resource type="AudioStream" uid="uid://di8veech3xxgl" path="res://audio/music/ThemePart4.wav" id="4_i5pdr"]
+[ext_resource type="AudioStream" uid="uid://r86u3ab0doo5" path="res://audio/music/Theme-v1.mp3" id="1_kkoy4"]
+[ext_resource type="AudioStream" uid="uid://dpfjc6uoaw1pd" path="res://audio/music/Sombre(plus de lumiere)-v1.mp3" id="2_hmtu8"]
 
 [resource]
-clip_count = 4
+clip_count = 2
 clip_0/name = &"Theme Part 1"
-clip_0/stream = ExtResource("1_knb5w")
+clip_0/stream = ExtResource("1_kkoy4")
 clip_0/auto_advance = 0
 clip_1/name = &"Theme Part 2"
-clip_1/stream = ExtResource("2_o4cgq")
+clip_1/stream = ExtResource("2_hmtu8")
 clip_1/auto_advance = 0
-clip_2/name = &"Theme Part 3"
-clip_2/stream = ExtResource("3_o4cgq")
-clip_2/auto_advance = 0
-clip_3/name = &"Theme Part 4"
-clip_3/stream = ExtResource("4_i5pdr")
-clip_3/auto_advance = 0
 _transitions = {
 Vector2i(-1, 0): {
 "fade_beats": 4.0,

@@ -3,6 +3,7 @@ extends Node
 const MAIN_MENU: PackedScene = preload("res://ui/menus/main_menu/main_menu.tscn")
 const OPTIONS_MENU: PackedScene = preload("res://ui/menus/options_menu/options_menu.tscn")
 const GAME: PackedScene = preload("res://core/game/game.tscn")
+const CREDITS: PackedScene = preload("res://core/credits/credits.tscn")
 
 var _scene_container: Node
 var _current_scene: Node = null
@@ -17,6 +18,9 @@ func go_to_game() -> void:
 func go_to_main_menu() -> void:
 	_change_scene(MAIN_MENU)
 
+func go_to_credits() -> void:
+	_change_scene(CREDITS)
+	
 func go_to_options() -> void:
 	var options: OptionsMenu = OPTIONS_MENU.instantiate()
 	options.context = SceneEnums.OptionsContext.MAIN_MENU

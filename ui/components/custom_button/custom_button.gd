@@ -9,7 +9,7 @@ const SCALE_HOVER: Vector2 = Vector2(1.05, 1.05)
 const SCALE_PRESS: Vector2 = Vector2(0.95, 0.95)
 const SCALE_NORMAL: Vector2 = Vector2(1.0, 1.0)
 const TWEEN_DURATION: float = 0.08
-const ROTATION_HOVER: float = 1.5   # degrés, ajuste selon ton goût
+const ROTATION_HOVER: float = 1.5
 const ROTATION_NORMAL: float = 0.0
 
 

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ccdol7ggctm36"]
+
+[ext_resource type="Script" uid="uid://dq15ucng0q6ld" path="res://core/credits/credits.gd" id="1_nogde"]
+[ext_resource type="PackedScene" uid="uid://do6rp836y5wbe" path="res://ui/components/custom_button/CustomButton.tscn" id="1_vqfe7"]
+[ext_resource type="Theme" uid="uid://do17k3k7dl5m8" path="res://shared/themes/global_theme.tres" id="1_ywwvp"]
+
+[node name="Credits" type="Control" unique_id=1845304726]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ywwvp")
+script = ExtResource("1_nogde")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1255195472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1124428525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1835226347]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1432714665]
+layout_mode = 2
+text = "Barvo les lesbiennes"
+
+[node name="BackToMenu" parent="MarginContainer/VBoxContainer" unique_id=1373872495 instance=ExtResource("1_vqfe7")]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

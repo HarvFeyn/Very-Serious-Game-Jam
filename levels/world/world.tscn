@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://fomt1l1fvukk"]
+
+[ext_resource type="Script" uid="uid://dwreybbr7mitb" path="res://levels/world/world.gd" id="1_6rhwe"]
+[ext_resource type="PackedScene" uid="uid://dbm7gqyaousm4" path="res://entities/player/player.tscn" id="2_b8p08"]
+[ext_resource type="PackedScene" uid="uid://dlv7u0e2agwgi" path="res://levels/level2/level2.tscn" id="3_8gvdk"]
+[ext_resource type="PackedScene" uid="uid://csufiw6mlv0eq" path="res://levels/level1/level1.tscn" id="3_b8p08"]
+
+[node name="World" type="Node2D" unique_id=1156097146 node_paths=PackedStringArray("starting_level", "starting_spawn")]
+script = ExtResource("1_6rhwe")
+starting_level = NodePath("Level1")
+starting_spawn = NodePath("Level1/SpawnPointStart")
+
+[node name="Level1" parent="." unique_id=203581162 instance=ExtResource("3_b8p08")]
+
+[node name="Door" parent="Level1" index="2" unique_id=1914781586]
+target_level_path = NodePath("../../Level2")
+spawn_marker_path = NodePath("../../Level2/SpawnPointLeftDoor")
+
+[node name="Level2" parent="." unique_id=1041921582 instance=ExtResource("3_8gvdk")]
+
+[node name="Door" parent="Level2" index="2" unique_id=1914781586]
+target_level_path = NodePath("../../Level1")
+spawn_marker_path = NodePath("../../Level1/SpawnPointRightDoor")
+start_unlocked = true
+
+[node name="Player" parent="." unique_id=2145889706 instance=ExtResource("2_b8p08")]
+position = Vector2(35, 548)
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1485284561]
+
+[node name="FadeRect" type="ColorRect" parent="TransitionLayer" unique_id=599865140]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[editable path="Level1"]
+[editable path="Level2"]
+[editable path="Player"]

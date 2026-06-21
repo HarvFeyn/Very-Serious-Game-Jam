@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dqs7m44gelr3u"]
+
+[ext_resource type="Script" uid="uid://c1miytfgtpdi0" path="res://entities/environement/powerWheel/power_wheel.gd" id="1_s5rtk"]
+[ext_resource type="Texture2D" uid="uid://lo2doynuene8" path="res://entities/environement/powerWheel/light_cone(3).png" id="2_carxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
+size = Vector2(105, 94)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rrfo1"]
+polygon = PackedVector2Array(46, -105, 46, -96, 145, -96, 145, -105)
+
+[node name="PowerWheel" type="Node2D" unique_id=1829818611]
+script = ExtResource("1_s5rtk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=797060699]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[node name="Label" type="Label" parent="." unique_id=665997739]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Roue"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1769854047]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=258398956]
+position = Vector2(21.5, 37)
+shape = SubResource("RectangleShape2D_pbwj5")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=507907282]
+position = Vector2(0, -208)
+color = Color(0.93666303, 0.96475834, 0.5738074, 1)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("2_carxi")
+offset = Vector2(0, 158)
+texture_scale = 0.7
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=511718468]
+offset_left = -19.0
+offset_top = -215.0
+offset_right = 19.0
+offset_bottom = -208.0
+
+[node name="StaticBody2D" type="Node2D" parent="." unique_id=1159659430]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=2018664141]
+offset_left = 46.0
+offset_top = -105.0
+offset_right = 145.0
+offset_bottom = -96.0
+color = Color(0, 0, 0, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=458776782]
+occluder = SubResource("OccluderPolygon2D_rrfo1")

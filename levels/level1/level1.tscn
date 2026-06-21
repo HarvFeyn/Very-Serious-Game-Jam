@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://csufiw6mlv0eq"]
+
+[ext_resource type="Script" uid="uid://cryp6n60m4j4d" path="res://levels/level/level.gd" id="1_ps0pm"]
+[ext_resource type="PackedScene" uid="uid://colnnt376ipuu" path="res://entities/environement/wall/wall.tscn" id="2_c6lro"]
+[ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_ps0pm"]
+[ext_resource type="PackedScene" uid="uid://dqs7m44gelr3u" path="res://entities/environement/powerWheel/power_wheel.tscn" id="4_aatsp"]
+[ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="4_sfwlx"]
+
+[node name="Level1" type="Node2D" unique_id=203581162]
+script = ExtResource("1_ps0pm")
+
+[node name="Room" type="ColorRect" parent="." unique_id=834305411]
+custom_minimum_size = Vector2(1920, 680)
+offset_top = -10.0
+offset_right = 1920.0
+offset_bottom = 670.0
+color = Color(0.54901963, 1, 1, 1)
+
+[node name="WallLeft" parent="." unique_id=274106288 instance=ExtResource("2_c6lro")]
+position = Vector2(0, 311)
+
+[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("3_ps0pm")]
+position = Vector2(1922, 317)
+walk_in_offset = Vector2(100, 0)
+
+[node name="SpawnPointStart" type="Marker2D" parent="." unique_id=1725485209]
+position = Vector2(1500, 630)
+
+[node name="SpawnPointRightDoor" type="Marker2D" parent="." unique_id=110496765]
+position = Vector2(1920, 630)
+script = ExtResource("4_sfwlx")
+walk_in_direction = Vector2(-120, 0)
+
+[node name="PowerWheel" parent="." unique_id=1829818611 instance=ExtResource("4_aatsp")]
+position = Vector2(210, 566)

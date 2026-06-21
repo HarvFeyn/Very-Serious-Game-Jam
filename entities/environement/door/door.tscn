@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://yjce8lolur6d"]
+
+[ext_resource type="Script" uid="uid://bk21cx4extdno" path="res://entities/environement/door/door.gd" id="1_dpy26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
+size = Vector2(120, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2w13"]
+size = Vector2(240, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dafue"]
+size = Vector2(80, 720)
+
+[node name="Door" type="StaticBody2D" unique_id=1914781586]
+script = ExtResource("1_dpy26")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=413623393]
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 360.0
+color = Color(0.40392157, 0.40392157, 0.40392157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883308996]
+shape = SubResource("RectangleShape2D_pbwj5")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=937079813]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=710537249]
+shape = SubResource("RectangleShape2D_n2w13")
+
+[node name="CrossingArea" type="Area2D" parent="." unique_id=1453782066]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrossingArea" unique_id=1243159808]
+shape = SubResource("RectangleShape2D_dafue")
