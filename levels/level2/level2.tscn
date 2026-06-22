@@ -4,16 +4,32 @@
 [ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="2_5x1h8"]
 [ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="2_mh2fd"]
 [ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="4_dtxg0"]
+[ext_resource type="PackedScene" uid="uid://dunonff1bl5t1" path="res://entities/environement/pushableObject/pushable_object.tscn" id="5_jgmmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
+size = Vector2(101, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6moi3"]
+size = Vector2(100, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho0tc"]
+size = Vector2(25, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbwgw"]
+size = Vector2(25, 197)
 
 [node name="Level2" type="Node2D" unique_id=1041921582]
+position = Vector2(0, -21)
 script = ExtResource("1_tr3t4")
+camera_limit_bottom = 648
 
 [node name="Room" type="ColorRect" parent="." unique_id=1219190314]
-custom_minimum_size = Vector2(1920, 680)
-offset_top = -10.0
+custom_minimum_size = Vector2(1920, 340)
+offset_top = 330.0
 offset_right = 1920.0
 offset_bottom = 670.0
 color = Color(0.9680498, 0.9101414, 0.7420509, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="SpawnPointLeftDoor" type="Marker2D" parent="." unique_id=647309201]
 position = Vector2(0, 630)
@@ -32,3 +48,47 @@ position = Vector2(850, 200)
 
 [node name="AlarmLight3" parent="." unique_id=1713301267 instance=ExtResource("4_dtxg0")]
 position = Vector2(1500, 200)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2057526644]
+position = Vector2(1408, 370)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1499926229]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 100.0
+offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=974121909]
+position = Vector2(51.5, 26)
+shape = SubResource("RectangleShape2D_pbwj5")
+
+[node name="PushableObject" parent="." unique_id=1070257473 instance=ExtResource("5_jgmmn")]
+position = Vector2(624, 471)
+
+[node name="ColorRect" parent="PushableObject" index="0" unique_id=1513608155]
+custom_minimum_size = Vector2(100, 200)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" parent="PushableObject" index="1" unique_id=2004040421]
+position = Vector2(52, 100)
+shape = SubResource("RectangleShape2D_6moi3")
+
+[node name="CollisionShape2D" parent="PushableObject/PushAreaLeft" parent_id_path=PackedInt32Array(1070257473, 2104469945) index="0" unique_id=478890218]
+position = Vector2(-11, 101)
+shape = SubResource("RectangleShape2D_ho0tc")
+
+[node name="CollisionShape2D" parent="PushableObject/PushAreaRight" parent_id_path=PackedInt32Array(1070257473, 1006554691) index="0" unique_id=659951142]
+position = Vector2(115, 99.5)
+shape = SubResource("RectangleShape2D_tbwgw")
+
+[node name="Label" type="Label" parent="." unique_id=1912840635]
+offset_left = 1400.0
+offset_top = 314.0
+offset_right = 1514.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(1, 0.101960786, 0.043137256, 1)
+theme_override_font_sizes/font_size = 30
+text = "Go here"
+metadata/_edit_use_anchors_ = true
+
+[editable path="PushableObject"]

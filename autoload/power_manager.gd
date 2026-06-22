@@ -8,7 +8,7 @@ enum PowerTier {
 }
 
 const TIER_DURATIONS: Dictionary = {
-	PowerTier.TIER_1: 45.0,
+	PowerTier.TIER_1: 80.0,
 	PowerTier.TIER_2: 80.0,
 	PowerTier.TIER_3: 120.0,
 	PowerTier.TIER_4: 160.0,

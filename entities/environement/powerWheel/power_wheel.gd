@@ -25,7 +25,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true
 		if not _is_active and not _is_on_cooldown:
-			EventBus.interaction_available.emit("Press E to use wheel")
+			EventBus.interaction_available.emit("Press E to interact")
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
