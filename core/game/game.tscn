@@ -5,9 +5,12 @@
 [ext_resource type="Script" uid="uid://dwa4qhdtv5vj3" path="res://ui/components/texture_button/texture_button.gd" id="4_kelw5"]
 [ext_resource type="PackedScene" uid="uid://fomt1l1fvukk" path="res://levels/world/world.tscn" id="5_00x87"]
 [ext_resource type="PackedScene" uid="uid://cw1ouunlxkgy0" path="res://ui/hud/interactionUi/interaction_ui.tscn" id="5_risx7"]
+[ext_resource type="PackedScene" uid="uid://bh27qbjd5udei" path="res://ui/hud/WheelProgressUI/WheelProgressUI.tscn" id="6_00x87"]
 
 [node name="Game" type="Node" unique_id=2093756505]
 script = ExtResource("1_sul5r")
+
+[node name="World" parent="." unique_id=1156097146 instance=ExtResource("5_00x87")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1457521581]
 
@@ -28,6 +31,10 @@ script = ExtResource("4_kelw5")
 
 [node name="InteractionUi" parent="UI" unique_id=992247586 instance=ExtResource("5_risx7")]
 
-[node name="World" parent="." unique_id=1156097146 instance=ExtResource("5_00x87")]
+[node name="WheelProgressUi" parent="UI" unique_id=874383247 instance=ExtResource("6_00x87")]
+offset_left = 309.0
+offset_top = 329.0
+offset_right = 309.0
+offset_bottom = 329.0
 
 [connection signal="pressed" from="UI/TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,7 +1,7 @@
 extends Node
 
 const FADE_DURATION: float = 0.7
-const WALK_DURATION: float = 1
+const WALK_DURATION: float = 0.7
 
 var current_level: GameLevel
 var player: CharacterBody2D
@@ -10,12 +10,25 @@ var fade_rect: ColorRect
 
 var _is_transitioning: bool = false
 
-func setup(p_player: CharacterBody2D, p_camera: Camera2D, p_fade_rect: ColorRect, starting_level: GameLevel) -> void:
+var _starting_level: GameLevel
+var _starting_spawn: Marker2D
+
+func setup(p_player: CharacterBody2D, p_camera: Camera2D, p_fade_rect: ColorRect, starting_level: GameLevel, starting_spawn: Marker2D) -> void:
 	player = p_player
 	camera = p_camera
 	fade_rect = p_fade_rect
 	current_level = starting_level
+	_starting_level = starting_level
+	_starting_spawn = starting_spawn
 	_activate_level(starting_level)
+
+	EventBus.game_reset.connect(_on_game_reset)
+
+func _on_game_reset() -> void:
+	player.global_position = _starting_spawn.global_position
+	player.velocity = Vector2.ZERO
+	current_level = _starting_level
+	_activate_level(_starting_level)
 
 func go_to_level_with_walk_in(player_node: CharacterBody2D, target_level: GameLevel, spawn_marker: Marker2D, walk_offset: Vector2) -> void:
 	if _is_transitioning:
@@ -23,10 +36,10 @@ func go_to_level_with_walk_in(player_node: CharacterBody2D, target_level: GameLe
 	_is_transitioning = true
 	_do_transition_with_walk(player_node, target_level, spawn_marker, walk_offset)
 
-func _do_transition_with_walk(player_node: CharacterBody2D, target_level: GameLevel, spawn_marker: LevelSpawnPoint, walk_offset: Vector2) -> void:
+func _do_transition_with_walk(player_node: CharacterBody2D, target_level: GameLevel, spawn_marker: Marker2D, walk_offset: Vector2) -> void:
 	player_node.controls_enabled = false
 	player_node.velocity = Vector2.ZERO
-	
+
 	var walk_tween: Tween = create_tween()
 	walk_tween.tween_property(player_node, "global_position", player_node.global_position + walk_offset, WALK_DURATION)
 	await walk_tween.finished
@@ -36,6 +49,7 @@ func _do_transition_with_walk(player_node: CharacterBody2D, target_level: GameLe
 	await tween_out.finished
 
 	player_node.global_position = spawn_marker.global_position
+	player_node.velocity = Vector2.ZERO
 	current_level = target_level
 	_activate_level(target_level)
 
@@ -44,7 +58,7 @@ func _do_transition_with_walk(player_node: CharacterBody2D, target_level: GameLe
 	await tween_in.finished
 
 	var walk_in_tween: Tween = create_tween()
-	walk_in_tween.tween_property(player_node, "global_position", player_node.global_position + spawn_marker.walk_in_direction, WALK_DURATION)
+	walk_in_tween.tween_property(player_node, "global_position", player_node.global_position + walk_offset, WALK_DURATION)
 	await walk_in_tween.finished
 
 	player_node.controls_enabled = true

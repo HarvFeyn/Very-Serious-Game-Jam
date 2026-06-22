@@ -1,16 +1,33 @@
 [gd_scene format=3 uid="uid://dqs7m44gelr3u"]
 
 [ext_resource type="Script" uid="uid://c1miytfgtpdi0" path="res://entities/environement/powerWheel/power_wheel.gd" id="1_s5rtk"]
-[ext_resource type="Texture2D" uid="uid://lo2doynuene8" path="res://entities/environement/powerWheel/light_cone(3).png" id="2_carxi"]
+[ext_resource type="AudioStream" uid="uid://cput2i2aok1mr" path="res://audio/SFX/Validation-1.wav" id="2_carxi"]
+[ext_resource type="AudioStream" uid="uid://bpeke06dovp2j" path="res://entities/environement/powerWheel/audio/Roue1.mp3" id="3_koxl4"]
+[ext_resource type="AudioStream" uid="uid://bvfl1rwnhtv52" path="res://entities/environement/powerWheel/audio/Roue2.mp3" id="4_8cw08"]
+[ext_resource type="AudioStream" uid="uid://c8hrjpgtlp0cj" path="res://entities/environement/powerWheel/audio/Roue3.mp3" id="5_1sc4j"]
+[ext_resource type="AudioStream" uid="uid://cd4thyi4jn30n" path="res://entities/environement/powerWheel/audio/Roue4.mp3" id="6_qshoo"]
+[ext_resource type="AudioStream" uid="uid://bguxtwpj1sckg" path="res://entities/environement/powerWheel/audio/Roue5.mp3" id="7_yoevn"]
+[ext_resource type="AudioStream" uid="uid://b7datwg8jncm" path="res://entities/environement/powerWheel/audio/Roue6.mp3" id="8_qphgi"]
+[ext_resource type="AudioStream" uid="uid://j20yuq8y11ai" path="res://entities/environement/powerWheel/audio/Roue7.mp3" id="9_iyyen"]
+[ext_resource type="AudioStream" uid="uid://jo2jagpayh8" path="res://entities/environement/powerWheel/audio/Roue8.mp3" id="10_v4y82"]
+[ext_resource type="AudioStream" uid="uid://6yqy4h21lsdr" path="res://entities/environement/powerWheel/audio/Roue9.mp3" id="11_xe2ub"]
+[ext_resource type="AudioStream" uid="uid://t874sixxj0v6" path="res://entities/environement/powerWheel/audio/Roue10.mp3" id="12_g6fwh"]
+[ext_resource type="AudioStream" uid="uid://c24am5fcxa3ej" path="res://entities/environement/powerWheel/audio/Roue11.mp3" id="13_fv7ud"]
+[ext_resource type="AudioStream" uid="uid://cdocdtrqsenhy" path="res://entities/environement/powerWheel/audio/Roue12.mp3" id="14_v1r54"]
+[ext_resource type="AudioStream" uid="uid://bc51fj7nirjal" path="res://entities/environement/powerWheel/audio/Roue13.mp3" id="15_65bdj"]
+[ext_resource type="AudioStream" uid="uid://3b82dbtcbmxs" path="res://entities/environement/powerWheel/audio/Roue14.mp3" id="16_obyxv"]
+[ext_resource type="AudioStream" uid="uid://caw584gy0a05s" path="res://entities/environement/powerWheel/audio/Roue15.mp3" id="17_15lhn"]
+[ext_resource type="AudioStream" uid="uid://k0myhjnyqt7x" path="res://entities/environement/powerWheel/audio/Roue16.mp3" id="18_lrs1o"]
+[ext_resource type="AudioStream" uid="uid://dw2j7vscxvy5e" path="res://entities/environement/powerWheel/audio/Roue17.mp3" id="19_hia5r"]
+[ext_resource type="AudioStream" uid="uid://c0m68211ppxw2" path="res://entities/environement/powerWheel/audio/Roue18.mp3" id="20_y8g8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
 size = Vector2(105, 94)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rrfo1"]
-polygon = PackedVector2Array(46, -105, 46, -96, 145, -96, 145, -105)
-
 [node name="PowerWheel" type="Node2D" unique_id=1829818611]
 script = ExtResource("1_s5rtk")
+success_sound = ExtResource("2_carxi")
+note_sounds = Array[AudioStream]([ExtResource("3_koxl4"), ExtResource("4_8cw08"), ExtResource("5_1sc4j"), ExtResource("6_qshoo"), ExtResource("7_yoevn"), ExtResource("8_qphgi"), ExtResource("9_iyyen"), ExtResource("10_v4y82"), ExtResource("11_xe2ub"), ExtResource("12_g6fwh"), ExtResource("13_fv7ud"), ExtResource("14_v1r54"), ExtResource("15_65bdj"), ExtResource("16_obyxv"), ExtResource("17_15lhn"), ExtResource("18_lrs1o"), ExtResource("19_hia5r"), ExtResource("20_y8g8e")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=797060699]
 offset_right = 40.0
@@ -27,30 +44,3 @@ text = "Roue"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=258398956]
 position = Vector2(21.5, 37)
 shape = SubResource("RectangleShape2D_pbwj5")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=507907282]
-position = Vector2(0, -208)
-color = Color(0.93666303, 0.96475834, 0.5738074, 1)
-energy = 1.5
-shadow_enabled = true
-texture = ExtResource("2_carxi")
-offset = Vector2(0, 158)
-texture_scale = 0.7
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=511718468]
-offset_left = -19.0
-offset_top = -215.0
-offset_right = 19.0
-offset_bottom = -208.0
-
-[node name="StaticBody2D" type="Node2D" parent="." unique_id=1159659430]
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=2018664141]
-offset_left = 46.0
-offset_top = -105.0
-offset_right = 145.0
-offset_bottom = -96.0
-color = Color(0, 0, 0, 1)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=458776782]
-occluder = SubResource("OccluderPolygon2D_rrfo1")

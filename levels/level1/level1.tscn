@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_ps0pm"]
 [ext_resource type="PackedScene" uid="uid://dqs7m44gelr3u" path="res://entities/environement/powerWheel/power_wheel.tscn" id="4_aatsp"]
 [ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="4_sfwlx"]
+[ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="6_tysf0"]
+[ext_resource type="PackedScene" uid="uid://4ydrrphk3moj" path="res://entities/environement/lights/wheel_light/wheel_light.tscn" id="7_3jy00"]
 
 [node name="Level1" type="Node2D" unique_id=203581162]
 script = ExtResource("1_ps0pm")
@@ -24,7 +26,7 @@ position = Vector2(1922, 317)
 walk_in_offset = Vector2(100, 0)
 
 [node name="SpawnPointStart" type="Marker2D" parent="." unique_id=1725485209]
-position = Vector2(1500, 630)
+position = Vector2(136, 630)
 
 [node name="SpawnPointRightDoor" type="Marker2D" parent="." unique_id=110496765]
 position = Vector2(1920, 630)
@@ -33,3 +35,15 @@ walk_in_direction = Vector2(-120, 0)
 
 [node name="PowerWheel" parent="." unique_id=1829818611 instance=ExtResource("4_aatsp")]
 position = Vector2(210, 566)
+
+[node name="AlarmLight" parent="." unique_id=818889376 instance=ExtResource("6_tysf0")]
+position = Vector2(200, 200)
+
+[node name="AlarmLight2" parent="." unique_id=1516458303 instance=ExtResource("6_tysf0")]
+position = Vector2(850, 200)
+
+[node name="AlarmLight3" parent="." unique_id=1116638446 instance=ExtResource("6_tysf0")]
+position = Vector2(1500, 200)
+
+[node name="WheelLight" parent="." unique_id=763019391 instance=ExtResource("7_3jy00")]
+position = Vector2(190, 574)

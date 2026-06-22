@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbm7gqyaousm4" path="res://entities/player/player.tscn" id="2_b8p08"]
 [ext_resource type="PackedScene" uid="uid://dlv7u0e2agwgi" path="res://levels/level2/level2.tscn" id="3_8gvdk"]
 [ext_resource type="PackedScene" uid="uid://csufiw6mlv0eq" path="res://levels/level1/level1.tscn" id="3_b8p08"]
+[ext_resource type="Script" uid="uid://dx53nf4b3r7op" path="res://levels/testLevel/canvas_modulate.gd" id="5_h0il2"]
 
 [node name="World" type="Node2D" unique_id=1156097146 node_paths=PackedStringArray("starting_level", "starting_spawn")]
 script = ExtResource("1_6rhwe")
@@ -35,6 +36,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=528629762]
+script = ExtResource("5_h0il2")
 
 [editable path="Level1"]
 [editable path="Level2"]

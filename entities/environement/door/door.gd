@@ -13,7 +13,8 @@ func _ready() -> void:
 	$InteractionArea.body_entered.connect(_on_interaction_area_entered)
 	$InteractionArea.body_exited.connect(_on_interaction_area_exited)
 	$CrossingArea.body_entered.connect(_on_crossing_area_entered)
-
+	EventBus.game_reset.connect(_on_game_reset)
+	
 	if start_unlocked:
 		unlock()
 
@@ -45,6 +46,13 @@ func unlock() -> void:
 	$ColorRect.color = Color(0.2, 0.8, 0.2, 0.5)
 	EventBus.interaction_unavailable.emit()
 
+func _on_game_reset() -> void:
+	if start_unlocked:
+		return
+	is_locked = true
+	$CollisionShape2D.set_deferred("disabled", false)
+	$ColorRect.color = Color(0.4, 0.4, 0.4, 1.0)
+	
 func _trigger_transition(player_body: CharacterBody2D) -> void:
 	var target_level: GameLevel = get_node(target_level_path) as GameLevel
 	var spawn_marker: Marker2D = get_node(spawn_marker_path) as Marker2D

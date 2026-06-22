@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bh27qbjd5udei"]
+
+[ext_resource type="Script" uid="uid://d3olydfga0aoq" path="res://ui/hud/WheelProgressUI/wheel_progress_ui.gd" id="1_gcijg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcijg"]
+bg_color = Color(0.18717614, 0.18717614, 0.18717614, 0.83137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5rtk"]
+bg_color = Color(0, 0.7138158, 0.29048723, 1)
+
+[node name="WheelProgressUi" type="Control" unique_id=874383247]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gcijg")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=788091138]
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gcijg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s5rtk")
+fill_mode = 3
+show_percentage = false

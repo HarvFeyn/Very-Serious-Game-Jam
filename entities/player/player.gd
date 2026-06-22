@@ -3,13 +3,18 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 
 var controls_enabled: bool = true
+var is_in_wheel_mode: bool = false
 
 func _physics_process(_delta: float) -> void:
+	if is_in_wheel_mode:
+		velocity = Vector2.ZERO
+		return
+
 	if not controls_enabled:
 		move_and_slide()
 		return
 
-	var direction:float = Input.get_axis("move_left", "move_right")
+	var direction: float = Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed
 	velocity.y = 0
 
