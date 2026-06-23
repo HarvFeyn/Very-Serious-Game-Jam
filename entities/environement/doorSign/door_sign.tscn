@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6lu5qg242y7a"]
+
+[ext_resource type="Script" uid="uid://dnlnjwl2op5vj" path="res://entities/environement/doorSign/door_sign.gd" id="1_1dmwq"]
+[ext_resource type="Texture2D" uid="uid://iqmwsensq11a" path="res://entities/environement/lights/light_radial.png" id="2_swi4u"]
+
+[node name="DoorSign" type="Node2D" unique_id=966204458]
+script = ExtResource("1_1dmwq")
+
+[node name="Label" type="Label" parent="." unique_id=844067584]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.49411765)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 18
+text = "TOTO"
+
+[node name="SignLight" type="PointLight2D" parent="." unique_id=1085989079]
+position = Vector2(27, 14)
+color = Color(1, 0.64174765, 0.5866503, 1)
+energy = 0.4
+texture = ExtResource("2_swi4u")

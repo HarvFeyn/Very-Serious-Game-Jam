@@ -2,8 +2,9 @@ class_name MusicEnums
 extends RefCounted
 
 enum MusicState {
-	CALM = 0,
-	TENSE = 1,
-	ACTION = 2,
-	BAGARE = 3,
+	MENU = 0,
+	ROOM1 = 1,
+	ROOM2 = 2,
+	ROOM3 = 3,
+	STRESS = 4,
 }

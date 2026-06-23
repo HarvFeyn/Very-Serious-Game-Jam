@@ -14,3 +14,15 @@ signal game_reset
 signal wheel_progress_changed(progress: float)
 signal wheel_started
 signal wheel_completed
+
+signal safe_zone_entered
+signal safe_zone_exited
+
+signal door_unlocked(door: StaticBody2D)
+
+signal pee_changed(value: float)
+signal pee_full
+
+signal tier_advanced(tier: int)
+
+signal power_level_changed(ratio: float)

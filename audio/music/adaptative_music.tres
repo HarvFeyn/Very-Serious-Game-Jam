@@ -1,37 +1,67 @@
-[gd_resource type="AudioStreamInteractive" format=3 uid="uid://34ppy3p8vxax"]
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://cuxi4xoq8r5tw"]
 
-[ext_resource type="AudioStream" uid="uid://r86u3ab0doo5" path="res://audio/music/Theme-v1.mp3" id="1_kkoy4"]
-[ext_resource type="AudioStream" uid="uid://dpfjc6uoaw1pd" path="res://audio/music/Sombre(plus de lumiere)-v1.mp3" id="2_hmtu8"]
+[ext_resource type="AudioStream" uid="uid://d15qoj25l30df" path="res://audio/music/Theme-calme-110bpm.mp3" id="1_iqfip"]
+[ext_resource type="AudioStream" uid="uid://d4nq2uyhqww7w" path="res://audio/music/Theme-Piece1-110bpm.mp3" id="2_qfb4f"]
+[ext_resource type="AudioStream" uid="uid://ddsbxcawmbqk5" path="res://audio/music/Theme-Piece2-110bpm.mp3" id="3_t37h4"]
+[ext_resource type="AudioStream" uid="uid://b4tl2448ht7a2" path="res://audio/music/Theme-Piece3-110bpm.mp3" id="4_fw22d"]
+[ext_resource type="AudioStream" uid="uid://bxgm0h3wxoao" path="res://audio/music/Theme-stress-plus-de-lumiere-120bpm.mp3" id="5_qfb4f"]
 
 [resource]
-clip_count = 2
-clip_0/name = &"Theme Part 1"
-clip_0/stream = ExtResource("1_kkoy4")
+clip_count = 5
+clip_0/name = &"Theme Part 2"
+clip_0/stream = ExtResource("1_iqfip")
 clip_0/auto_advance = 0
-clip_1/name = &"Theme Part 2"
-clip_1/stream = ExtResource("2_hmtu8")
+clip_1/name = &"Theme Part 1"
+clip_1/stream = ExtResource("2_qfb4f")
 clip_1/auto_advance = 0
+clip_2/name = &"Theme Piece 2 110 Bpm"
+clip_2/stream = ExtResource("3_t37h4")
+clip_2/auto_advance = 0
+clip_3/name = &"Theme Piece 3 110 Bpm"
+clip_3/stream = ExtResource("4_fw22d")
+clip_3/auto_advance = 0
+clip_4/name = &"Theme Stress Plus De Lumiere 120 Bpm"
+clip_4/stream = ExtResource("5_qfb4f")
+clip_4/auto_advance = 0
 _transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 12.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
 Vector2i(-1, 0): {
-"fade_beats": 4.0,
+"fade_beats": 12.0,
 "fade_mode": 4,
 "from_time": 0,
 "to_time": 0
 },
 Vector2i(-1, 1): {
-"fade_beats": 4.0,
+"fade_beats": 12.0,
 "fade_mode": 4,
 "from_time": 0,
 "to_time": 0
 },
 Vector2i(-1, 2): {
-"fade_beats": 4.0,
+"fade_beats": 12.0,
 "fade_mode": 4,
 "from_time": 0,
 "to_time": 0
 },
 Vector2i(-1, 3): {
-"fade_beats": 4.0,
+"fade_beats": 12.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(-1, 4): {
+"fade_beats": 12.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(0, 0): {
+"fade_beats": 1.0,
 "fade_mode": 4,
 "from_time": 0,
 "to_time": 0

@@ -1,5 +1,7 @@
 extends Node
 
+const BATTERY_DOWN_SOUND: AudioStream = preload("res://audio/SFX/BatteryDown.mp3")
+
 enum PowerTier {
 	TIER_1,
 	TIER_2,
@@ -8,18 +10,18 @@ enum PowerTier {
 }
 
 const TIER_DURATIONS: Dictionary = {
-	PowerTier.TIER_1: 80.0,
+	PowerTier.TIER_1: 40.0,
 	PowerTier.TIER_2: 80.0,
 	PowerTier.TIER_3: 120.0,
 	PowerTier.TIER_4: 160.0,
 }
 
-const LIT_COLOR: Color = Color(1.0, 1.0, 1.0)
-const WARNING_COLOR: Color = Color(0.75, 0.7, 0.65)
-const CRITICAL_COLOR: Color = Color(0.45, 0.35, 0.35)
-const DEPLETED_COLOR: Color = Color(0.1, 0.05, 0.05)
+const LIT_COLOR: Color = GameColors.LIT_COLOR
+const WARNING_COLOR: Color = GameColors.WARNING_COLOR
+const CRITICAL_COLOR: Color = GameColors.CRITICAL_COLOR
+const DEPLETED_COLOR: Color = GameColors.DEPLETED_COLOR
 
-const WARNING_THRESHOLD: float = 40.0
+const WARNING_THRESHOLD: float = 30.0
 const CRITICAL_THRESHOLD: float = 20.0
 const STEP_TWEEN_DURATION: float = 0.5
 const WHEEL_EXIT_DURATION: float = 1.0
@@ -46,6 +48,14 @@ func get_current_max_duration() -> float:
 func advance_tier() -> void:
 	if current_tier < PowerTier.TIER_4:
 		current_tier += 1
+		EventBus.tier_advanced.emit(current_tier)
+		match current_tier:
+			PowerTier.TIER_2:
+				if _current_light_level != LightLevel.CRITICAL and _current_light_level != LightLevel.DEPLETED:
+					AudioManager.set_music_state(MusicEnums.MusicState.ROOM2)
+			PowerTier.TIER_3:
+				if _current_light_level != LightLevel.CRITICAL and _current_light_level != LightLevel.DEPLETED:
+					AudioManager.set_music_state(MusicEnums.MusicState.ROOM3)
 
 func recharge() -> void:
 	var max_duration: float = get_current_max_duration()
@@ -53,10 +63,21 @@ func recharge() -> void:
 	_depletion_timer = max_duration
 	is_powered = true
 
+	var previous_light_level: LightLevel = _current_light_level
+
 	_set_light_level(LightLevel.FULL, WHEEL_EXIT_DURATION)
 	EventBus.power_recharged.emit()
 	EventBus.alarm_deactivated.emit()
 
+	if previous_light_level == LightLevel.CRITICAL or previous_light_level == LightLevel.DEPLETED:
+		match current_tier:
+			PowerTier.TIER_1:
+				AudioManager.set_music_state(MusicEnums.MusicState.ROOM1)
+			PowerTier.TIER_2:
+				AudioManager.set_music_state(MusicEnums.MusicState.ROOM2)
+			PowerTier.TIER_3, PowerTier.TIER_4:
+				AudioManager.set_music_state(MusicEnums.MusicState.ROOM3)
+			
 func _process(delta: float) -> void:
 	if not is_powered:
 		return
@@ -68,6 +89,7 @@ func _process(delta: float) -> void:
 		_on_power_depleted()
 		return
 
+	EventBus.power_level_changed.emit(time_remaining / get_current_max_duration())
 	_update_light_level_for_time(_depletion_timer)
 
 func _update_light_level_for_time(remaining: float) -> void:
@@ -93,12 +115,16 @@ func _set_light_level(level: LightLevel, duration: float = STEP_TWEEN_DURATION) 
 			EventBus.alarm_deactivated.emit()
 		LightLevel.WARNING:
 			target_color = WARNING_COLOR
+			AudioManager.play_sfx(BATTERY_DOWN_SOUND)
 		LightLevel.CRITICAL:
 			target_color = CRITICAL_COLOR
 			EventBus.alarm_activated.emit()
+			AudioManager.play_sfx(BATTERY_DOWN_SOUND)
+			AudioManager.set_music_state(MusicEnums.MusicState.STRESS)
 		LightLevel.DEPLETED:
 			target_color = DEPLETED_COLOR
 			EventBus.alarm_activated.emit()
+			AudioManager.play_sfx(BATTERY_DOWN_SOUND)
 
 	if _step_tween:
 		_step_tween.kill()
@@ -114,7 +140,6 @@ func _on_power_depleted() -> void:
 	is_powered = false
 	_set_light_level(LightLevel.DEPLETED)
 	EventBus.power_depleted.emit()
-	EventBus.game_reset.emit()
 
 func full_reset() -> void:
 	print("full reset called")
@@ -127,3 +152,4 @@ func full_reset() -> void:
 	is_powered = false
 	_current_light_level = LightLevel.FULL
 	_current_color = LIT_COLOR
+	AudioManager.set_music_state(MusicEnums.MusicState.ROOM1)

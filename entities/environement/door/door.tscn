@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://yjce8lolur6d"]
 
 [ext_resource type="Script" uid="uid://bk21cx4extdno" path="res://entities/environement/door/door.gd" id="1_dpy26"]
+[ext_resource type="Texture2D" uid="uid://f0qtc1btviy8" path="res://entities/environement/door/Porte1.png" id="2_s13w4"]
+[ext_resource type="Texture2D" uid="uid://cybxolqig5ana" path="res://entities/environement/door/Porte2.png" id="3_d2qnx"]
+[ext_resource type="Texture2D" uid="uid://lbga8pid2kct" path="res://entities/environement/door/CadrePorte.png" id="4_qswej"]
+[ext_resource type="Script" uid="uid://bo37dqiv8k4js" path="res://ui/hud/pressKey/key_hint.gd" id="5_x5btg"]
+[ext_resource type="Texture2D" uid="uid://d36p52a0on8mb" path="res://ui/hud/pressKey/sprite_top_v20.png" id="6_7qtnd"]
+[ext_resource type="Texture2D" uid="uid://colgtrvn87eho" path="res://ui/hud/pressKey/sprite_arrow_top1.png" id="7_7qtnd"]
+[ext_resource type="Texture2D" uid="uid://cofqmqq5a26dj" path="res://ui/hud/pressKey/sprite_bottom_v20.png" id="8_7qtnd"]
+[ext_resource type="Texture2D" uid="uid://3ibe8re78577" path="res://ui/hud/pressKey/sprite_bottom_v21.png" id="9_pxws0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
-size = Vector2(120, 640)
+size = Vector2(120, 414)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2w13"]
-size = Vector2(240, 720)
+size = Vector2(119, 212)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dafue"]
 size = Vector2(80, 720)
@@ -14,21 +22,62 @@ size = Vector2(80, 720)
 [node name="Door" type="StaticBody2D" unique_id=1914781586]
 script = ExtResource("1_dpy26")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=413623393]
-offset_left = -60.0
-offset_right = 60.0
-offset_bottom = 360.0
-color = Color(0.40392157, 0.40392157, 0.40392157, 1)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=622734203]
+offset_left = -133.0
+offset_top = -249.0
+offset_right = 153.0
+offset_bottom = 267.0
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="Door1" type="Sprite2D" parent="." unique_id=1100861185]
+position = Vector2(10, -33)
+texture = ExtResource("2_s13w4")
+
+[node name="Door2" type="Sprite2D" parent="." unique_id=1637974646]
+position = Vector2(-41, -53)
+texture = ExtResource("3_d2qnx")
+
+[node name="DoorFrame" type="Sprite2D" parent="." unique_id=127402327]
+texture = ExtResource("4_qswej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883308996]
+position = Vector2(39, -10)
 shape = SubResource("RectangleShape2D_pbwj5")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=937079813]
+position = Vector2(-17, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=710537249]
+position = Vector2(28.5, 45)
 shape = SubResource("RectangleShape2D_n2w13")
 
 [node name="CrossingArea" type="Area2D" parent="." unique_id=1453782066]
+position = Vector2(232, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrossingArea" unique_id=1243159808]
+position = Vector2(-209, -209)
 shape = SubResource("RectangleShape2D_dafue")
+
+[node name="KeyHints" type="Node2D" parent="." unique_id=1463182109]
+
+[node name="KeyUp" type="Node2D" parent="KeyHints" unique_id=1752121824]
+light_mask = 513
+visibility_layer = 513
+script = ExtResource("5_x5btg")
+texture_released = ExtResource("6_7qtnd")
+texture_pressed = ExtResource("7_7qtnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyUp" unique_id=1640276895]
+position = Vector2(78.99999, 0)
+scale = Vector2(0.06, 0.06)
+
+[node name="KeyDown" type="Node2D" parent="KeyHints" unique_id=1215555978]
+light_mask = 513
+visibility_layer = 513
+script = ExtResource("5_x5btg")
+texture_released = ExtResource("8_7qtnd")
+texture_pressed = ExtResource("9_pxws0")
+
+[node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyDown" unique_id=1716415665]
+position = Vector2(79, 72)
+scale = Vector2(0.06, 0.06)

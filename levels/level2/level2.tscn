@@ -23,7 +23,16 @@ position = Vector2(0, -21)
 script = ExtResource("1_tr3t4")
 camera_limit_bottom = 648
 
+[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("2_mh2fd")]
+position = Vector2(188, 429)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+walk_in_offset = Vector2(-100, 0)
+puzzle_solved = true
+is_arrival_door = true
+
 [node name="Room" type="ColorRect" parent="." unique_id=1219190314]
+visible = false
 custom_minimum_size = Vector2(1920, 340)
 offset_top = 330.0
 offset_right = 1920.0
@@ -35,10 +44,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, 630)
 script = ExtResource("2_5x1h8")
 walk_in_direction = Vector2(120, 0)
-
-[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("2_mh2fd")]
-position = Vector2(0, 326)
-walk_in_offset = Vector2(-100, 0)
 
 [node name="AlarmLight" parent="." unique_id=818889376 instance=ExtResource("4_dtxg0")]
 position = Vector2(200, 200)

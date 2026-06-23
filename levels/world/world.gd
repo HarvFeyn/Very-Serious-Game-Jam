@@ -6,6 +6,8 @@ extends Node2D
 func _ready() -> void:
 	LevelManager.setup($Player, $Player/Camera2D, $TransitionLayer/FadeRect, starting_level, starting_spawn)
 	$Player.global_position = starting_spawn.global_position
-
+	AudioManager.set_music_state(MusicEnums.MusicState.STRESS)
+	
 func _exit_tree() -> void:
 	PowerManager.full_reset()
+	AudioManager.set_music_state(MusicEnums.MusicState.MENU)

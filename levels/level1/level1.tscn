@@ -2,68 +2,162 @@
 
 [ext_resource type="Script" uid="uid://cryp6n60m4j4d" path="res://levels/level/level.gd" id="1_ps0pm"]
 [ext_resource type="PackedScene" uid="uid://colnnt376ipuu" path="res://entities/environement/wall/wall.tscn" id="2_c6lro"]
+[ext_resource type="Texture2D" uid="uid://dyllxoquwq0hv" path="res://levels/world/starfield_4096.png" id="2_wwup8"]
+[ext_resource type="Script" uid="uid://d1fkhmyw1eboi" path="res://levels/world/galaxy_background.gd" id="3_htvhs"]
+[ext_resource type="Texture2D" uid="uid://bqcw10b064jvl" path="res://levels/level1/BackgroundLevel1Modif.png" id="3_lvnai"]
 [ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_ps0pm"]
 [ext_resource type="PackedScene" uid="uid://dqs7m44gelr3u" path="res://entities/environement/powerWheel/power_wheel.tscn" id="4_aatsp"]
 [ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="4_sfwlx"]
 [ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="6_tysf0"]
 [ext_resource type="PackedScene" uid="uid://4ydrrphk3moj" path="res://entities/environement/lights/wheel_light/wheel_light.tscn" id="7_3jy00"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
-size = Vector2(62, 60)
+[ext_resource type="AudioStream" uid="uid://bpeke06dovp2j" path="res://entities/environement/powerWheel/audio/Roue1.mp3" id="8_ee0tc"]
+[ext_resource type="PackedScene" uid="uid://bb35qfvvg1orv" path="res://entities/environement/QuestComputer/quest_computer.tscn" id="9_gw1fo"]
+[ext_resource type="AudioStream" uid="uid://bvfl1rwnhtv52" path="res://entities/environement/powerWheel/audio/Roue2.mp3" id="9_sce53"]
+[ext_resource type="AudioStream" uid="uid://c8hrjpgtlp0cj" path="res://entities/environement/powerWheel/audio/Roue3.mp3" id="10_3oxuj"]
+[ext_resource type="PackedScene" uid="uid://n8mtc7o8y2c7" path="res://entities/environement/waterDispenser/water_dispenser.tscn" id="10_jhqhn"]
+[ext_resource type="PackedScene" uid="uid://bls6g7j7pk67a" path="res://entities/environement/table/table.tscn" id="11_ddtso"]
+[ext_resource type="AudioStream" uid="uid://cd4thyi4jn30n" path="res://entities/environement/powerWheel/audio/Roue4.mp3" id="11_lvnai"]
+[ext_resource type="PackedScene" uid="uid://dxi2nx0p5dkld" path="res://entities/environement/litter/litter.tscn" id="12_f7y8c"]
+[ext_resource type="AudioStream" uid="uid://bguxtwpj1sckg" path="res://entities/environement/powerWheel/audio/Roue5.mp3" id="12_wwup8"]
+[ext_resource type="AudioStream" uid="uid://b7datwg8jncm" path="res://entities/environement/powerWheel/audio/Roue6.mp3" id="13_htvhs"]
+[ext_resource type="AudioStream" uid="uid://j20yuq8y11ai" path="res://entities/environement/powerWheel/audio/Roue7.mp3" id="14_8ghno"]
+[ext_resource type="AudioStream" uid="uid://jo2jagpayh8" path="res://entities/environement/powerWheel/audio/Roue8.mp3" id="15_mcum3"]
+[ext_resource type="AudioStream" uid="uid://6yqy4h21lsdr" path="res://entities/environement/powerWheel/audio/Roue9.mp3" id="16_dxl77"]
+[ext_resource type="AudioStream" uid="uid://t874sixxj0v6" path="res://entities/environement/powerWheel/audio/Roue10.mp3" id="17_nc60i"]
+[ext_resource type="AudioStream" uid="uid://c24am5fcxa3ej" path="res://entities/environement/powerWheel/audio/Roue11.mp3" id="18_qye81"]
+[ext_resource type="AudioStream" uid="uid://cdocdtrqsenhy" path="res://entities/environement/powerWheel/audio/Roue12.mp3" id="19_fw05y"]
+[ext_resource type="AudioStream" uid="uid://bc51fj7nirjal" path="res://entities/environement/powerWheel/audio/Roue13.mp3" id="20_15n53"]
+[ext_resource type="AudioStream" uid="uid://3b82dbtcbmxs" path="res://entities/environement/powerWheel/audio/Roue14.mp3" id="21_cy7g5"]
+[ext_resource type="AudioStream" uid="uid://caw584gy0a05s" path="res://entities/environement/powerWheel/audio/Roue15.mp3" id="22_jwlgd"]
+[ext_resource type="AudioStream" uid="uid://k0myhjnyqt7x" path="res://entities/environement/powerWheel/audio/Roue16.mp3" id="23_7vc8q"]
+[ext_resource type="AudioStream" uid="uid://dw2j7vscxvy5e" path="res://entities/environement/powerWheel/audio/Roue17.mp3" id="24_cisti"]
+[ext_resource type="AudioStream" uid="uid://c0m68211ppxw2" path="res://entities/environement/powerWheel/audio/Roue18.mp3" id="25_14loe"]
+[ext_resource type="AudioStream" uid="uid://lnmo3c6noang" path="res://entities/environement/powerWheel/audio/Roue19.mp3" id="26_h843m"]
+[ext_resource type="AudioStream" uid="uid://dyvp8na7dit7d" path="res://entities/environement/powerWheel/audio/Roue20.mp3" id="27_ri7hg"]
+[ext_resource type="AudioStream" uid="uid://bso20ffbclwi7" path="res://entities/environement/powerWheel/audio/Roue21.mp3" id="28_jt8xr"]
+[ext_resource type="PackedScene" uid="uid://bq0b3vrwggj5r" path="res://entities/environement/lights/room_light/room_light.tscn" id="31_lvnai"]
+[ext_resource type="PackedScene" uid="uid://bmsr236qt8ijp" path="res://entities/environement/safeZone/safe_zone.tscn" id="35_sce53"]
+[ext_resource type="AudioStream" uid="uid://dfmden2ew0cl0" path="res://entities/player/audio/Pas content.mp3" id="36_3oxuj"]
+[ext_resource type="AudioStream" uid="uid://bhltt33gh0j57" path="res://entities/environement/litter/Litiere.mp3" id="37_8ghno"]
+[ext_resource type="PackedScene" uid="uid://c6lu5qg242y7a" path="res://entities/environement/doorSign/door_sign.tscn" id="39_htvhs"]
 
 [node name="Level1" type="Node2D" unique_id=203581162]
-position = Vector2(0, -21)
 script = ExtResource("1_ps0pm")
+camera_limit_left = 30
+camera_limit_right = 3200
+camera_limit_top = -145
 camera_limit_bottom = 648
 
-[node name="Room" type="ColorRect" parent="." unique_id=834305411]
-custom_minimum_size = Vector2(1920, 300)
-offset_top = 370.0
-offset_right = 1920.0
-offset_bottom = 670.0
-color = Color(0.54901963, 1, 1, 1)
-metadata/_edit_use_anchors_ = true
+[node name="GalaxyBackground" type="Sprite2D" parent="." unique_id=1975284196]
+z_index = -10
+position = Vector2(1766, 223)
+scale = Vector2(2, 2)
+texture = ExtResource("2_wwup8")
+script = ExtResource("3_htvhs")
+rotation_speed = 0.1
+
+[node name="DoorRight" parent="." unique_id=1914781586 instance=ExtResource("3_ps0pm")]
+position = Vector2(3057, 431)
+advances_tier = true
+
+[node name="DoorLeft" parent="." unique_id=9861939 instance=ExtResource("3_ps0pm")]
+position = Vector2(188, 429)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+walk_in_offset = Vector2(-100, 0)
+
+[node name="RoomBackground" type="Sprite2D" parent="." unique_id=2091243776]
+position = Vector2(1623, 294)
+texture = ExtResource("3_lvnai")
 
 [node name="WallLeft" parent="." unique_id=274106288 instance=ExtResource("2_c6lro")]
 position = Vector2(0, 311)
 
-[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("3_ps0pm")]
-position = Vector2(1922, 317)
-walk_in_offset = Vector2(100, 0)
-
 [node name="SpawnPointStart" type="Marker2D" parent="." unique_id=1725485209]
-position = Vector2(136, 630)
+position = Vector2(504, 538)
 
 [node name="SpawnPointRightDoor" type="Marker2D" parent="." unique_id=110496765]
-position = Vector2(1920, 630)
+position = Vector2(3201, 486)
 script = ExtResource("4_sfwlx")
 walk_in_direction = Vector2(-120, 0)
 
+[node name="BackSafeZone" type="Marker2D" parent="." unique_id=1452696396]
+position = Vector2(904, 535)
+
 [node name="PowerWheel" parent="." unique_id=1829818611 instance=ExtResource("4_aatsp")]
-position = Vector2(210, 566)
+position = Vector2(687, 358)
+scale = Vector2(0.5, 0.5)
+note_sounds = Array[AudioStream]([ExtResource("8_ee0tc"), ExtResource("9_sce53"), ExtResource("10_3oxuj"), ExtResource("11_lvnai"), ExtResource("12_wwup8"), ExtResource("13_htvhs"), ExtResource("14_8ghno"), ExtResource("15_mcum3"), ExtResource("16_dxl77"), ExtResource("17_nc60i"), ExtResource("18_qye81"), ExtResource("19_fw05y"), ExtResource("20_15n53"), ExtResource("21_cy7g5"), ExtResource("22_jwlgd"), ExtResource("23_7vc8q"), ExtResource("24_cisti"), ExtResource("25_14loe"), ExtResource("26_h843m"), ExtResource("27_ri7hg"), ExtResource("28_jt8xr")])
 
 [node name="AlarmLight" parent="." unique_id=818889376 instance=ExtResource("6_tysf0")]
-position = Vector2(200, 200)
+position = Vector2(482, 11)
 
 [node name="AlarmLight2" parent="." unique_id=1516458303 instance=ExtResource("6_tysf0")]
-position = Vector2(850, 200)
-
-[node name="AlarmLight3" parent="." unique_id=1116638446 instance=ExtResource("6_tysf0")]
-position = Vector2(1500, 200)
+position = Vector2(1986, 8)
 
 [node name="WheelLight" parent="." unique_id=763019391 instance=ExtResource("7_3jy00")]
-position = Vector2(190, 574)
+position = Vector2(483.00003, 381)
+scale = Vector2(0.97, 0.97)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=803075228]
-position = Vector2(640, 470)
+[node name="RoomLight" parent="." unique_id=1946417331 instance=ExtResource("31_lvnai")]
+position = Vector2(1984, 386)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1901063420]
-position = Vector2(100, 100)
-scale = Vector2(3.3, 3.3)
-shape = SubResource("RectangleShape2D_pbwj5")
+[node name="QuestComputer" parent="." unique_id=16126992 instance=ExtResource("9_gw1fo")]
+position = Vector2(1239.0001, 250.00002)
+scale = Vector2(0.7, 0.7)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=2106047988]
-custom_minimum_size = Vector2(200, 200)
-offset_right = 200.0
-offset_bottom = 200.0
-metadata/_edit_use_anchors_ = true
+[node name="WaterDispenser" parent="." unique_id=602455319 instance=ExtResource("10_jhqhn")]
+position = Vector2(1635.9998, 360.99994)
+scale = Vector2(0.3, 0.3)
+
+[node name="Table" parent="." unique_id=744071208 instance=ExtResource("11_ddtso")]
+position = Vector2(2040, 472)
+
+[node name="Litter" parent="." unique_id=1674713658 instance=ExtResource("12_f7y8c")]
+position = Vector2(2640, 479)
+scale = Vector2(0.5, 0.5)
+target_door = NodePath("../DoorRight")
+interaction_sound = ExtResource("37_8ghno")
+
+[node name="SafeZone" parent="." unique_id=1750926026 node_paths=PackedStringArray("return_point") instance=ExtResource("35_sce53")]
+position = Vector2(431, 501)
+return_point = NodePath("../BackSafeZone")
+push_back_sound = ExtResource("36_3oxuj")
+
+[node name="CollisionShape2D" parent="SafeZone" index="0" unique_id=349621349]
+position = Vector2(90, -182)
+
+[node name="DoorSign" parent="." unique_id=966204458 instance=ExtResource("39_htvhs")]
+position = Vector2(149, 155)
+linked_door = NodePath("../DoorLeft")
+room_name = "Airlock"
+
+[node name="Label" parent="DoorSign" index="0" unique_id=844067584]
+offset_left = 15.0
+offset_top = -3.0
+offset_right = 67.0
+offset_bottom = 24.0
+rotation = 0.08726646
+
+[node name="SignLight" parent="DoorSign" index="1" unique_id=1085989079]
+position = Vector2(43, 12)
+
+[node name="DoorSign2" parent="." unique_id=2085298885 instance=ExtResource("39_htvhs")]
+position = Vector2(2988, 160)
+rotation = -0.08726646
+linked_door = NodePath("../DoorRight")
+room_name = "Engine Room"
+
+[node name="Label" parent="DoorSign2" index="0" unique_id=844067584]
+offset_left = 1.9052734
+offset_top = 1.1705017
+offset_right = 50.905273
+offset_bottom = 27.170502
+
+[node name="SignLight" parent="DoorSign2" index="1" unique_id=1085989079]
+position = Vector2(60.048584, 14.883789)
+
+[editable path="PowerWheel"]
+[editable path="SafeZone"]
+[editable path="DoorSign"]
+[editable path="DoorSign2"]

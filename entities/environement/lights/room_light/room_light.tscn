@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bq0b3vrwggj5r"]
+
+[ext_resource type="Texture2D" uid="uid://d4nbt5gcxhtjb" path="res://entities/environement/lights/light_cone_wide6.png" id="1_76pc7"]
+[ext_resource type="Script" uid="uid://bgny7t7ksxjdq" path="res://entities/environement/lights/room_light/point_light_2d.gd" id="2_nl6ox"]
+
+[node name="RoomLight" type="Node2D" unique_id=1946417331]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=769158090]
+position = Vector2(0, -208)
+color = Color(0.97127026, 0.76138353, 0.5950967, 1)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("1_76pc7")
+offset = Vector2(0, 158)
+texture_scale = 0.7
+script = ExtResource("2_nl6ox")

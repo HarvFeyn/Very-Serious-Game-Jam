@@ -25,6 +25,6 @@ func _on_options_closed() -> void:
 	_buttons_container.visible = true
 
 func _on_main_menu_button_pressed() -> void:
-	AudioManager.set_music_state(MusicEnums.MusicState.CALM)
+	AudioManager.set_music_state(MusicEnums.MusicState.MENU)
 	Globals.resume()
 	SceneManager.go_to_main_menu()

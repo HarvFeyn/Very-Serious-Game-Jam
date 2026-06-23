@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cay6gaa2v0hir"]
+
+[ext_resource type="Script" uid="uid://br7e507g2igdu" path="res://ui/hud/peeBar/pee_bar.gd" id="1_33fni"]
+[ext_resource type="Texture2D" uid="uid://dfkm4ofk07j7y" path="res://ui/hud/peeBar/sprite_pee_bar0.png" id="1_xck1j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33fni"]
+bg_color = Color(0.6, 0.6, 0.6, 0.1254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xck1j"]
+bg_color = Color(0.9646315, 0.8694894, 0.38783938, 1)
+
+[node name="PeeBar" type="Control" unique_id=1099701949]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_33fni")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1089700089]
+layout_mode = 0
+offset_left = -1441.0
+offset_top = -801.0
+offset_right = 99.0
+offset_bottom = -576.0
+theme_override_styles/background = SubResource("StyleBoxFlat_33fni")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xck1j")
+step = 0.0
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1633709059]
+texture = ExtResource("1_xck1j")

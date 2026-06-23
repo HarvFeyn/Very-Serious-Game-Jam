@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dxi2nx0p5dkld"]
+
+[ext_resource type="Script" uid="uid://bxycgm7rsqwe" path="res://entities/environement/litter/litter.gd" id="1_h7x66"]
+[ext_resource type="Texture2D" uid="uid://fm2bnql15q17" path="res://entities/environement/litter/Litter.png" id="1_liv5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liv5t"]
+size = Vector2(571, 795)
+
+[node name="Litter" type="Node2D" unique_id=1674713658]
+script = ExtResource("1_h7x66")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=797560983]
+texture = ExtResource("1_liv5t")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=430053227]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2142709830]
+position = Vector2(5.5, 243.5)
+shape = SubResource("RectangleShape2D_liv5t")

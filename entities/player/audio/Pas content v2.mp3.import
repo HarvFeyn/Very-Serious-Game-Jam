@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxvb44lfby80y"
+path="res://.godot/imported/Pas content v2.mp3-821fdff3b27523ed7e7e0e510126d0a5.mp3str"
+
+[deps]
+
+source_file="res://entities/player/audio/Pas content v2.mp3"
+dest_files=["res://.godot/imported/Pas content v2.mp3-821fdff3b27523ed7e7e0e510126d0a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

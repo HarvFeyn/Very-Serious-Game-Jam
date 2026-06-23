@@ -1,6 +1,10 @@
 extends Node
 
 var main: MainScene
+var pee_level: float = 0.0
+
+func _ready() -> void:
+	EventBus.game_reset.connect(reset_pee)
 
 func get_main() -> MainScene:
 	if main == null:
@@ -25,3 +29,7 @@ func set_fullscreen(value: bool) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	SettingsManager.set_setting("video", "fullscreen", value)
+
+func reset_pee() -> void:
+	pee_level = 0.0
+	EventBus.pee_changed.emit(pee_level)

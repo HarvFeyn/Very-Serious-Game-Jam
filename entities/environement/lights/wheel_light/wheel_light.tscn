@@ -1,37 +1,18 @@
 [gd_scene format=3 uid="uid://4ydrrphk3moj"]
 
-[ext_resource type="Texture2D" uid="uid://lo2doynuene8" path="res://entities/environement/powerWheel/light_cone(3).png" id="1_a5dwl"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfcy"]
-polygon = PackedVector2Array(46, -105, 46, -96, 145, -96, 145, -105)
+[ext_resource type="Texture2D" uid="uid://d4nbt5gcxhtjb" path="res://entities/environement/lights/light_cone_wide6.png" id="1_a5dwl"]
+[ext_resource type="Script" uid="uid://dfctuve0qewtd" path="res://entities/environement/lights/wheel_light/point_light_2d.gd" id="2_sjfcy"]
 
 [node name="WheelLight" type="Node2D" unique_id=763019391]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2047579482]
 position = Vector2(0, -208)
-color = Color(0.9717371, 0.28073615, 0.22518155, 1)
-energy = 1.5
+color = Color(0.972549, 0.28235295, 0.22352941, 1)
+energy = 2.0
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 8.0
 texture = ExtResource("1_a5dwl")
 offset = Vector2(0, 158)
 texture_scale = 0.7
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=360159719]
-offset_left = -19.0
-offset_top = -215.0
-offset_right = 19.0
-offset_bottom = -208.0
-
-[node name="StaticBody2D" type="Node2D" parent="." unique_id=1729719956]
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1301721943]
-visible = false
-offset_left = 46.0
-offset_top = -105.0
-offset_right = 145.0
-offset_bottom = -96.0
-color = Color(0, 0, 0, 1)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=956063886]
-visible = false
-occluder = SubResource("OccluderPolygon2D_sjfcy")
+script = ExtResource("2_sjfcy")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8ia42sii7wo"]
 
-[ext_resource type="Texture2D" uid="uid://iqmwsensq11a" path="res://entities/environement/powerWheel/light_radial.png" id="1_jboqm"]
+[ext_resource type="Texture2D" uid="uid://iqmwsensq11a" path="res://entities/environement/lights/light_radial.png" id="1_jboqm"]
 [ext_resource type="Script" uid="uid://blar4n3vrvxgl" path="res://entities/environement/lights/alarmLight/alarm_light.gd" id="2_cbumo"]
 
 [node name="AlarmLight" type="PointLight2D" unique_id=818889376]
