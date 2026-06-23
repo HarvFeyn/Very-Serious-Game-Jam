@@ -46,6 +46,7 @@ position = Vector2(-1, 0)
 texture = ExtResource("22_obyxv")
 
 [node name="Wheel" type="Sprite2D" parent="." unique_id=1587886721]
+z_index = 2
 position = Vector2(70, 31)
 texture = ExtResource("23_15lhn")
 

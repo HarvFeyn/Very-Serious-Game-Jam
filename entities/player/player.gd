@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@onready var sprite: AnimatedSprite2D = $sprite
+@onready var _collision: CollisionShape2D = $CollisionShape2D
+@export var collision_offset_x: float = 29.0
+@export var collision_offset_y: float = 5.0
+
 @export var speed: float = 400.0
 @export var jump_force: float = -800.0
 @export var gravity: float = 1500.0
@@ -19,7 +24,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-
+		
+	sprite.speed_scale = 1.0
+	
 	if not controls_enabled:
 		velocity.x = 0.0
 		_apply_gravity(delta)
@@ -44,16 +51,26 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if not _was_on_floor and is_on_floor():
-		#AudioManager.play_sfx(LAND_SOUND)
 		pass
 
 	_was_on_floor = is_on_floor()
 
-	if direction != 0 and not is_pushing:
-		scale.x = sign(direction)
+	if direction != 0:
+		sprite.play("run")
+		_update_direction(direction)
+	else:
+		sprite.stop()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		velocity.y = 0.0
+
+func _update_direction(direction: float) -> void:
+	if direction > 0:
+		sprite.flip_h = false
+		_collision.position.x = collision_offset_x
+	elif direction < 0:
+		sprite.flip_h = true
+		_collision.position.x = -collision_offset_x

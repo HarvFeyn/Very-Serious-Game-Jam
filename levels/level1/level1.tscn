@@ -111,7 +111,7 @@ position = Vector2(1635.9998, 360.99994)
 scale = Vector2(0.3, 0.3)
 
 [node name="Table" parent="." unique_id=744071208 instance=ExtResource("11_ddtso")]
-position = Vector2(2040, 472)
+position = Vector2(2049, 472)
 
 [node name="Litter" parent="." unique_id=1674713658 instance=ExtResource("12_f7y8c")]
 position = Vector2(2640, 479)
