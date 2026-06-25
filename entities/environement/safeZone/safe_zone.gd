@@ -10,6 +10,7 @@ var _player_ref: CharacterBody2D = null
 var _is_pushing_back: bool = false
 
 func _ready() -> void:
+	Globals.is_returning_to_menu = false
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	EventBus.power_depleted.connect(_on_power_depleted)
@@ -41,7 +42,7 @@ func _push_player_back() -> void:
 	_player_ref.controls_enabled = false
 	_player_ref.velocity = Vector2.ZERO
 
-	if push_back_sound:
+	if push_back_sound and !Globals.is_returning_to_menu:
 		AudioManager.play_sfx(push_back_sound)
 
 	var tween: Tween = create_tween()

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bqcw10b064jvl" path="res://levels/level1/BackgroundLevel1Modif.png" id="3_lvnai"]
 [ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_ps0pm"]
 [ext_resource type="PackedScene" uid="uid://dqs7m44gelr3u" path="res://entities/environement/powerWheel/power_wheel.tscn" id="4_aatsp"]
-[ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="4_sfwlx"]
 [ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="6_tysf0"]
 [ext_resource type="PackedScene" uid="uid://4ydrrphk3moj" path="res://entities/environement/lights/wheel_light/wheel_light.tscn" id="7_3jy00"]
 [ext_resource type="AudioStream" uid="uid://bpeke06dovp2j" path="res://entities/environement/powerWheel/audio/Roue1.mp3" id="8_ee0tc"]
@@ -36,14 +35,17 @@
 [ext_resource type="AudioStream" uid="uid://dyvp8na7dit7d" path="res://entities/environement/powerWheel/audio/Roue20.mp3" id="27_ri7hg"]
 [ext_resource type="AudioStream" uid="uid://bso20ffbclwi7" path="res://entities/environement/powerWheel/audio/Roue21.mp3" id="28_jt8xr"]
 [ext_resource type="PackedScene" uid="uid://bq0b3vrwggj5r" path="res://entities/environement/lights/room_light/room_light.tscn" id="31_lvnai"]
+[ext_resource type="AudioStream" uid="uid://cd0mbki1um4vb" path="res://entities/environement/waterDispenser/Chat qui boit.mp3" id="34_dxl77"]
 [ext_resource type="PackedScene" uid="uid://bmsr236qt8ijp" path="res://entities/environement/safeZone/safe_zone.tscn" id="35_sce53"]
 [ext_resource type="AudioStream" uid="uid://dfmden2ew0cl0" path="res://entities/player/audio/Pas content.mp3" id="36_3oxuj"]
 [ext_resource type="AudioStream" uid="uid://bhltt33gh0j57" path="res://entities/environement/litter/Litiere.mp3" id="37_8ghno"]
 [ext_resource type="PackedScene" uid="uid://c6lu5qg242y7a" path="res://entities/environement/doorSign/door_sign.tscn" id="39_htvhs"]
+[ext_resource type="Texture2D" uid="uid://c8lrvm6deegbt" path="res://levels/level1/DoorRightHalf.png" id="40_8ghno"]
+[ext_resource type="PackedScene" uid="uid://dr8c1ie0q37jd" path="res://ui/hud/jumpTrigger/jump_trigger.tscn" id="41_mcum3"]
 
 [node name="Level1" type="Node2D" unique_id=203581162]
 script = ExtResource("1_ps0pm")
-camera_limit_left = 30
+camera_limit_left = 60
 camera_limit_right = 3200
 camera_limit_top = -145
 camera_limit_bottom = 648
@@ -58,35 +60,40 @@ rotation_speed = 0.1
 
 [node name="DoorRight" parent="." unique_id=1914781586 instance=ExtResource("3_ps0pm")]
 position = Vector2(3057, 431)
-advances_tier = true
+puzzle_solved = true
 
 [node name="DoorLeft" parent="." unique_id=9861939 instance=ExtResource("3_ps0pm")]
 position = Vector2(188, 429)
 rotation = -3.1415925
 scale = Vector2(1, -1)
-walk_in_offset = Vector2(-100, 0)
+reverse_door = true
 
 [node name="RoomBackground" type="Sprite2D" parent="." unique_id=2091243776]
-position = Vector2(1623, 294)
+position = Vector2(1672, 274)
 texture = ExtResource("3_lvnai")
 
 [node name="WallLeft" parent="." unique_id=274106288 instance=ExtResource("2_c6lro")]
-position = Vector2(0, 311)
+position = Vector2(-1, 363)
+scale = Vector2(1, 1.5)
+
+[node name="WallRight" parent="." unique_id=1730320753 instance=ExtResource("2_c6lro")]
+position = Vector2(3255, 363)
+scale = Vector2(1, 1.5)
+
+[node name="WallTop" parent="." unique_id=891779206 instance=ExtResource("2_c6lro")]
+position = Vector2(1623, -149)
+rotation = 1.5707964
+scale = Vector2(1, 5)
 
 [node name="SpawnPointStart" type="Marker2D" parent="." unique_id=1725485209]
 position = Vector2(504, 538)
-
-[node name="SpawnPointRightDoor" type="Marker2D" parent="." unique_id=110496765]
-position = Vector2(3201, 486)
-script = ExtResource("4_sfwlx")
-walk_in_direction = Vector2(-120, 0)
 
 [node name="BackSafeZone" type="Marker2D" parent="." unique_id=1452696396]
 position = Vector2(904, 535)
 
 [node name="PowerWheel" parent="." unique_id=1829818611 instance=ExtResource("4_aatsp")]
 position = Vector2(687, 358)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 note_sounds = Array[AudioStream]([ExtResource("8_ee0tc"), ExtResource("9_sce53"), ExtResource("10_3oxuj"), ExtResource("11_lvnai"), ExtResource("12_wwup8"), ExtResource("13_htvhs"), ExtResource("14_8ghno"), ExtResource("15_mcum3"), ExtResource("16_dxl77"), ExtResource("17_nc60i"), ExtResource("18_qye81"), ExtResource("19_fw05y"), ExtResource("20_15n53"), ExtResource("21_cy7g5"), ExtResource("22_jwlgd"), ExtResource("23_7vc8q"), ExtResource("24_cisti"), ExtResource("25_14loe"), ExtResource("26_h843m"), ExtResource("27_ri7hg"), ExtResource("28_jt8xr")])
 
 [node name="AlarmLight" parent="." unique_id=818889376 instance=ExtResource("6_tysf0")]
@@ -109,6 +116,8 @@ scale = Vector2(0.7, 0.7)
 [node name="WaterDispenser" parent="." unique_id=602455319 instance=ExtResource("10_jhqhn")]
 position = Vector2(1635.9998, 360.99994)
 scale = Vector2(0.3, 0.3)
+drink_sound = ExtResource("34_dxl77")
+player_lock_position = Vector2(-70, 170)
 
 [node name="Table" parent="." unique_id=744071208 instance=ExtResource("11_ddtso")]
 position = Vector2(2049, 472)
@@ -125,7 +134,7 @@ return_point = NodePath("../BackSafeZone")
 push_back_sound = ExtResource("36_3oxuj")
 
 [node name="CollisionShape2D" parent="SafeZone" index="0" unique_id=349621349]
-position = Vector2(90, -182)
+position = Vector2(42.5, -182)
 
 [node name="DoorSign" parent="." unique_id=966204458 instance=ExtResource("39_htvhs")]
 position = Vector2(149, 155)
@@ -143,7 +152,7 @@ rotation = 0.08726646
 position = Vector2(43, 12)
 
 [node name="DoorSign2" parent="." unique_id=2085298885 instance=ExtResource("39_htvhs")]
-position = Vector2(2988, 160)
+position = Vector2(2991, 160)
 rotation = -0.08726646
 linked_door = NodePath("../DoorRight")
 room_name = "Engine Room"
@@ -157,7 +166,33 @@ offset_bottom = 27.170502
 [node name="SignLight" parent="DoorSign2" index="1" unique_id=1085989079]
 position = Vector2(60.048584, 14.883789)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2006493082]
+z_index = 5
+position = Vector2(1660, 299)
+texture = ExtResource("40_8ghno")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1247170006]
+z_index = 5
+position = Vector2(1582, 299)
+scale = Vector2(-1, 1)
+texture = ExtResource("40_8ghno")
+
+[node name="JumpTrigger" parent="." unique_id=1156512225 instance=ExtResource("41_mcum3")]
+position = Vector2(1719, 563)
+
+[node name="CollisionShape2D" parent="JumpTrigger" index="0" unique_id=520894993]
+position = Vector2(105.5, 23.5)
+
+[node name="JumpTrigger2" parent="." unique_id=902714190 instance=ExtResource("41_mcum3")]
+position = Vector2(1872, 328)
+permanent_dismiss = true
+
+[node name="CollisionShape2D" parent="JumpTrigger2" index="0" unique_id=520894993]
+position = Vector2(91.5, -30.25)
+
 [editable path="PowerWheel"]
 [editable path="SafeZone"]
 [editable path="DoorSign"]
 [editable path="DoorSign2"]
+[editable path="JumpTrigger"]
+[editable path="JumpTrigger2"]

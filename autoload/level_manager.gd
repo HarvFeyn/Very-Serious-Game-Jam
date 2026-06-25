@@ -2,8 +2,7 @@ extends Node
 
 const FADE_DURATION: float = 0.7
 const WALK_DURATION: float = 0.7
-
-const game_over_sound: AudioStream = preload("res://entities/player/audio/Feule.mp3")
+const game_over_sound: AudioStream = preload("res://entities/player/audio/Peur.mp3")
 
 var current_level: GameLevel
 var player: CharacterBody2D
@@ -11,7 +10,6 @@ var camera: Camera2D
 var fade_rect: ColorRect
 
 var _is_transitioning: bool = false
-
 var _starting_level: GameLevel
 var _starting_spawn: Marker2D
 
@@ -29,28 +27,33 @@ func setup(p_player: CharacterBody2D, p_camera: Camera2D, p_fade_rect: ColorRect
 func _on_game_reset() -> void:
 	player.controls_enabled = false
 	player.velocity = Vector2.ZERO
-	player.is_in_wheel_mode = false
+	player.is_in_lock_mode = false
 	player.is_pushing = false
+	
+	if Globals.is_returning_to_menu:
+		return
+		
+	AudioManager.play_sfx(game_over_sound)
 
 	var tween_out: Tween = create_tween()
-	tween_out.tween_property(fade_rect, "color:a", 1.0, 2.0)
-
-	await get_tree().create_timer(1.0).timeout
-	if game_over_sound:
-		AudioManager.play_sfx(game_over_sound)
-
+	tween_out.tween_property(fade_rect, "color:a", 1.0, 2.0)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await tween_out.finished
-
+	
+	if not is_instance_valid(player):
+		return
+		
 	player.global_position = _starting_spawn.global_position
 	player.velocity = Vector2.ZERO
 	current_level = _starting_level
 	_activate_level(_starting_level)
 
-	var tween_in: Tween = create_tween()
-	tween_in.tween_property(fade_rect, "color:a", 0.0, 1.0)
-	await tween_in.finished
-
 	player.controls_enabled = true
+
+	var tween_in: Tween = create_tween()
+	tween_in.tween_property(fade_rect, "color:a", 0.0, 3.0)\
+		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	await tween_in.finished
 	
 func go_to_level_with_walk_in(player_node: CharacterBody2D, target_level: GameLevel, spawn_position: Vector2, walk_offset: Vector2) -> void:
 	if _is_transitioning:

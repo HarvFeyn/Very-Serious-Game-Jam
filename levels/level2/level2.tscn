@@ -1,99 +1,141 @@
 [gd_scene format=3 uid="uid://dlv7u0e2agwgi"]
 
 [ext_resource type="Script" uid="uid://cryp6n60m4j4d" path="res://levels/level/level.gd" id="1_tr3t4"]
-[ext_resource type="Script" uid="uid://n6l2pjdaabjr" path="res://levels/level_spawn_point/level_spoint_point.gd" id="2_5x1h8"]
 [ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="2_mh2fd"]
 [ext_resource type="PackedScene" uid="uid://b8ia42sii7wo" path="res://entities/environement/lights/alarmLight/alarm_light.tscn" id="4_dtxg0"]
 [ext_resource type="PackedScene" uid="uid://dunonff1bl5t1" path="res://entities/environement/pushableObject/pushable_object.tscn" id="5_jgmmn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
-size = Vector2(101, 50)
+[ext_resource type="Texture2D" uid="uid://b1v6bcjdsf3ev" path="res://levels/level2/Fond.png" id="6_6moi3"]
+[ext_resource type="AudioStream" uid="uid://b5xxjdn4bet4i" path="res://entities/environement/engine/Moteur 200% + bulles.mp3" id="6_h2q84"]
+[ext_resource type="PackedScene" uid="uid://bq0b3vrwggj5r" path="res://entities/environement/lights/room_light/room_light.tscn" id="6_ho0tc"]
+[ext_resource type="AudioStream" uid="uid://dwrfqq6a7b1cw" path="res://entities/environement/engine/Moteur 100% + bulles.mp3" id="7_1gyy6"]
+[ext_resource type="PackedScene" uid="uid://c6lu5qg242y7a" path="res://entities/environement/doorSign/door_sign.tscn" id="7_ho0tc"]
+[ext_resource type="PackedScene" uid="uid://bk5u41dlpab1i" path="res://entities/environement/engine/engine.tscn" id="8_tbwgw"]
+[ext_resource type="PackedScene" uid="uid://cagxs3x3xwwjd" path="res://entities/environement/valve/valve.tscn" id="9_db1li"]
+[ext_resource type="Texture2D" uid="uid://c8lrvm6deegbt" path="res://levels/level1/DoorRightHalf.png" id="10_2xai0"]
+[ext_resource type="Texture2D" uid="uid://g3yfn5b6ur85" path="res://entities/environement/pushableObject/Tabouret.png" id="10_h2q84"]
+[ext_resource type="PackedScene" uid="uid://diw4cf2reg7r" path="res://entities/environement/fuel/fuel.tscn" id="11_yrnt5"]
+[ext_resource type="AudioStream" uid="uid://ripl64ygyv35" path="res://entities/environement/valve/Valve etape 3.mp3" id="13_1gyy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6moi3"]
-size = Vector2(100, 200)
+size = Vector2(100, 181.11111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho0tc"]
-size = Vector2(25, 200)
+size = Vector2(25, 114.33334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbwgw"]
-size = Vector2(25, 197)
+size = Vector2(25.277771, 112.222244)
 
 [node name="Level2" type="Node2D" unique_id=1041921582]
 position = Vector2(0, -21)
 script = ExtResource("1_tr3t4")
+camera_limit_right = 1850
+camera_limit_top = -145
 camera_limit_bottom = 648
 
-[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("2_mh2fd")]
+[node name="DoorLeft" parent="." unique_id=1914781586 instance=ExtResource("2_mh2fd")]
 position = Vector2(188, 429)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-walk_in_offset = Vector2(-100, 0)
-puzzle_solved = true
 is_arrival_door = true
+reverse_door = true
 
-[node name="Room" type="ColorRect" parent="." unique_id=1219190314]
-visible = false
-custom_minimum_size = Vector2(1920, 340)
-offset_top = 330.0
-offset_right = 1920.0
-offset_bottom = 670.0
-color = Color(0.9680498, 0.9101414, 0.7420509, 1)
-metadata/_edit_use_anchors_ = true
+[node name="DoorRight" parent="." unique_id=1188406596 instance=ExtResource("2_mh2fd")]
+position = Vector2(1718, 429)
+advances_tier = true
 
-[node name="SpawnPointLeftDoor" type="Marker2D" parent="." unique_id=647309201]
-position = Vector2(0, 630)
-script = ExtResource("2_5x1h8")
-walk_in_direction = Vector2(120, 0)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=814441143]
+position = Vector2(953, 292)
+texture = ExtResource("6_6moi3")
 
 [node name="AlarmLight" parent="." unique_id=818889376 instance=ExtResource("4_dtxg0")]
-position = Vector2(200, 200)
+position = Vector2(956, -96)
 
-[node name="AlarmLight2" parent="." unique_id=474103630 instance=ExtResource("4_dtxg0")]
-position = Vector2(850, 200)
+[node name="Engine" parent="." unique_id=805251371 instance=ExtResource("8_tbwgw")]
+position = Vector2(955, 323.00003)
+scale = Vector2(0.37, 0.37)
+target_door = NodePath("../DoorRight")
+overheat_sound = ExtResource("6_h2q84")
+running_sound = ExtResource("7_1gyy6")
 
-[node name="AlarmLight3" parent="." unique_id=1713301267 instance=ExtResource("4_dtxg0")]
-position = Vector2(1500, 200)
+[node name="Fuel" parent="." unique_id=2133284459 instance=ExtResource("11_yrnt5")]
+position = Vector2(954.9999, 450)
+scale = Vector2(0.12, 0.12)
+engine = NodePath("../Engine")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2057526644]
-position = Vector2(1408, 370)
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1499926229]
-custom_minimum_size = Vector2(100, 50)
-offset_right = 100.0
-offset_bottom = 50.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=974121909]
-position = Vector2(51.5, 26)
-shape = SubResource("RectangleShape2D_pbwj5")
+[node name="CollisionShape2D" parent="Fuel/InteractionArea" parent_id_path=PackedInt32Array(2133284459, 2062689387) index="0" unique_id=1876323404]
+position = Vector2(4.1674805, 470.83398)
+scale = Vector2(0.9999996, 0.9999996)
 
 [node name="PushableObject" parent="." unique_id=1070257473 instance=ExtResource("5_jgmmn")]
-position = Vector2(624, 471)
+position = Vector2(492.00003, 403)
+scale = Vector2(0.9, 0.9)
 
-[node name="ColorRect" parent="PushableObject" index="0" unique_id=1513608155]
-custom_minimum_size = Vector2(100, 200)
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" parent="PushableObject" index="0" unique_id=191429932]
+position = Vector2(53.333252, 115.55554)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("10_h2q84")
 
 [node name="CollisionShape2D" parent="PushableObject" index="1" unique_id=2004040421]
-position = Vector2(52, 100)
+position = Vector2(52, 115)
 shape = SubResource("RectangleShape2D_6moi3")
 
-[node name="CollisionShape2D" parent="PushableObject/PushAreaLeft" parent_id_path=PackedInt32Array(1070257473, 2104469945) index="0" unique_id=478890218]
-position = Vector2(-11, 101)
+[node name="PushAreaLeft" parent="PushableObject" index="2" unique_id=2104469945]
+position = Vector2(0, 5.555542)
+
+[node name="CollisionShape2D" parent="PushableObject/PushAreaLeft" index="0" unique_id=478890218]
+position = Vector2(-11, 143.8334)
 shape = SubResource("RectangleShape2D_ho0tc")
 
-[node name="CollisionShape2D" parent="PushableObject/PushAreaRight" parent_id_path=PackedInt32Array(1070257473, 1006554691) index="0" unique_id=659951142]
-position = Vector2(115, 99.5)
+[node name="PushAreaRight" parent="PushableObject" index="3" unique_id=1006554691]
+position = Vector2(0, 5.555542)
+
+[node name="CollisionShape2D" parent="PushableObject/PushAreaRight" index="0" unique_id=659951142]
+position = Vector2(115.138916, 143.88889)
 shape = SubResource("RectangleShape2D_tbwgw")
 
-[node name="Label" type="Label" parent="." unique_id=1912840635]
-offset_left = 1400.0
-offset_top = 314.0
-offset_right = 1514.0
-offset_bottom = 356.0
-theme_override_colors/font_color = Color(1, 0.101960786, 0.043137256, 1)
-theme_override_font_sizes/font_size = 30
-text = "Go here"
-metadata/_edit_use_anchors_ = true
+[node name="RoomLight" parent="." unique_id=1946417331 instance=ExtResource("6_ho0tc")]
+position = Vector2(955.00006, 361)
+scale = Vector2(1.2, 1.2)
 
+[node name="DoorSign2" parent="." unique_id=966204458 instance=ExtResource("7_ho0tc")]
+position = Vector2(134.99997, 147)
+rotation = 0.08726646
+linked_door = NodePath("../DoorLeft")
+room_name = "Living Quarters"
+
+[node name="Label" parent="DoorSign2" index="0" unique_id=844067584]
+offset_left = 1.2322693
+offset_top = 2.9122849
+offset_right = 42.23227
+offset_bottom = 25.912285
+theme_override_font_sizes/font_size = 15
+
+[node name="SignLight" parent="DoorSign2" index="1" unique_id=1085989079]
+position = Vector2(27.996918, 13.921539)
+
+[node name="DoorSign" parent="." unique_id=1522254525 instance=ExtResource("7_ho0tc")]
+position = Vector2(1671.0001, 155)
+rotation = -0.075049154
+linked_door = NodePath("../DoorRight")
+room_name = "Cockpit"
+
+[node name="Valve" parent="." unique_id=853984428 instance=ExtResource("9_db1li")]
+position = Vector2(1162, 204)
+scale = Vector2(0.08, 0.08)
+engine = NodePath("../Engine")
+turn_sound = ExtResource("13_1gyy6")
+
+[node name="CollisionShape2D" parent="Valve/InteractionArea" parent_id_path=PackedInt32Array(853984428, 901215026) index="0" unique_id=307090145]
+position = Vector2(0, 62.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1109593692]
+z_index = 5
+position = Vector2(1582, 299)
+scale = Vector2(-1, 1)
+texture = ExtResource("10_2xai0")
+
+[editable path="Engine"]
+[editable path="Fuel"]
 [editable path="PushableObject"]
+[editable path="DoorSign2"]
+[editable path="Valve"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cagxs3x3xwwjd"]
+
+[ext_resource type="Script" uid="uid://bvnwm083juxxd" path="res://entities/environement/valve/valve.gd" id="1_b1g23"]
+[ext_resource type="Texture2D" uid="uid://dxgxva20cpgsf" path="res://entities/environement/valve/Valve.png" id="1_weend"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1g23"]
+size = Vector2(750, 800)
+
+[node name="Valve" type="Node2D" unique_id=1021123736]
+script = ExtResource("1_b1g23")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1851019851]
+texture = ExtResource("1_weend")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=901215026]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=307090145]
+shape = SubResource("RectangleShape2D_b1g23")

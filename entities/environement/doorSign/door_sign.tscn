@@ -14,7 +14,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.49411765)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 1
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 text = "TOTO"
 
 [node name="SignLight" type="PointLight2D" parent="." unique_id=1085989079]

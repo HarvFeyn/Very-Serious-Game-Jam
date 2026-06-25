@@ -13,9 +13,7 @@ script = ExtResource("1_ufw3r")
 limit_left = 350.0
 limit_right = 1200.0
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1513608155]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=191429932]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004040421]
 shape = SubResource("RectangleShape2D_pbwj5")

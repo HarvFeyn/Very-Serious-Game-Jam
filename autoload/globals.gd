@@ -2,6 +2,8 @@ extends Node
 
 var main: MainScene
 var pee_level: float = 0.0
+var jump_hint_permanently_dismissed: bool = false
+var is_returning_to_menu: bool = false
 
 func _ready() -> void:
 	EventBus.game_reset.connect(reset_pee)

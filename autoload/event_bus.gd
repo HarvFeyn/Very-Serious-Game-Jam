@@ -26,3 +26,6 @@ signal pee_full
 signal tier_advanced(tier: int)
 
 signal power_level_changed(ratio: float)
+
+signal jump_hint_requested
+signal jump_hint_dismissed

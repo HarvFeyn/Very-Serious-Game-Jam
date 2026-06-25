@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqhwweab8p0xn"
+path="res://.godot/imported/Moteur 100%.mp3-c545d299bed77151b1e1485fddae4c3a.mp3str"
+
+[deps]
+
+source_file="res://entities/environement/engine/Moteur 100%.mp3"
+dest_files=["res://.godot/imported/Moteur 100%.mp3-c545d299bed77151b1e1485fddae4c3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

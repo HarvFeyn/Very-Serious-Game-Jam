@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dr8c1ie0q37jd"]
+
+[ext_resource type="Script" uid="uid://cf3w0jterlv5f" path="res://ui/hud/jumpTrigger/jump_trigger.gd" id="1_eq27c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eq27c"]
+size = Vector2(133, 291.5)
+
+[node name="JumpTrigger" type="Area2D" unique_id=1156512225]
+script = ExtResource("1_eq27c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520894993]
+position = Vector2(69.5, 43)
+shape = SubResource("RectangleShape2D_eq27c")

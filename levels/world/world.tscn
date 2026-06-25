@@ -16,22 +16,21 @@ starting_spawn = NodePath("Level1/SpawnPointStart")
 layer = -10
 
 [node name="Level1" parent="." unique_id=203581162 instance=ExtResource("3_b8p08")]
+visible = false
 
 [node name="DoorRight" parent="Level1" index="1" unique_id=1914781586]
-target_door = NodePath("../../Level2/Door")
+target_door = NodePath("../../Level2/DoorLeft")
 
 [node name="DoorLeft" parent="Level1" index="2" unique_id=9861939]
-target_door = NodePath("../../Level2/Door")
-walk_in_offset = Vector2(-150, 0)
-
-[node name="PowerWheel" parent="Level1" index="8" unique_id=1829818611]
-scale = Vector2(0.6, 0.6)
+target_door = NodePath("../../Level2/DoorRight")
 
 [node name="Level2" parent="." unique_id=1041921582 instance=ExtResource("3_8gvdk")]
 
-[node name="Door" parent="Level2" index="0" unique_id=1914781586]
+[node name="DoorLeft" parent="Level2" index="0" unique_id=1914781586]
 target_door = NodePath("../../Level1/DoorRight")
-walk_in_offset = Vector2(-150, 0)
+
+[node name="DoorRight" parent="Level2" index="1" unique_id=1188406596]
+target_door = NodePath("../../Level1/DoorLeft")
 
 [node name="Floor" parent="." unique_id=1618967398 instance=ExtResource("4_le7ry")]
 position = Vector2(0, 567)
@@ -50,6 +49,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=528629762]
+z_index = 50
 script = ExtResource("5_h0il2")
 
 [editable path="Level1"]
@@ -57,6 +57,9 @@ script = ExtResource("5_h0il2")
 [editable path="Level1/SafeZone"]
 [editable path="Level1/DoorSign"]
 [editable path="Level1/DoorSign2"]
+[editable path="Level1/JumpTrigger"]
+[editable path="Level1/JumpTrigger2"]
 [editable path="Level2"]
 [editable path="Level2/PushableObject"]
+[editable path="Level2/DoorSign2"]
 [editable path="Player"]

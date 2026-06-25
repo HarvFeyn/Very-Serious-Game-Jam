@@ -11,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://3ibe8re78577" path="res://ui/hud/pressKey/sprite_bottom_v21.png" id="9_pxws0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
-size = Vector2(120, 414)
+size = Vector2(137, 398)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2w13"]
-size = Vector2(119, 212)
+size = Vector2(33, 212)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dafue"]
-size = Vector2(80, 720)
+size = Vector2(122, 359)
 
 [node name="Door" type="StaticBody2D" unique_id=1914781586]
 script = ExtResource("1_dpy26")
@@ -30,32 +30,34 @@ offset_bottom = 267.0
 color = Color(0.15487596, 0.154876, 0.15487596, 1)
 
 [node name="Door1" type="Sprite2D" parent="." unique_id=1100861185]
-position = Vector2(10, -33)
+position = Vector2(7.999999, -28)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_s13w4")
 
 [node name="Door2" type="Sprite2D" parent="." unique_id=1637974646]
-position = Vector2(-41, -53)
+position = Vector2(-46.999996, -50.999996)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("3_d2qnx")
 
 [node name="DoorFrame" type="Sprite2D" parent="." unique_id=127402327]
 texture = ExtResource("4_qswej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883308996]
-position = Vector2(39, -10)
+position = Vector2(47.5, -18)
 shape = SubResource("RectangleShape2D_pbwj5")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=937079813]
 position = Vector2(-17, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=710537249]
-position = Vector2(28.5, 45)
+position = Vector2(-14.5, 45)
 shape = SubResource("RectangleShape2D_n2w13")
 
 [node name="CrossingArea" type="Area2D" parent="." unique_id=1453782066]
 position = Vector2(232, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrossingArea" unique_id=1243159808]
-position = Vector2(-209, -209)
+position = Vector2(-185, -28.5)
 shape = SubResource("RectangleShape2D_dafue")
 
 [node name="KeyHints" type="Node2D" parent="." unique_id=1463182109]
@@ -69,7 +71,7 @@ texture_pressed = ExtResource("7_7qtnd")
 
 [node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyUp" unique_id=1640276895]
 position = Vector2(78.99999, 0)
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.05, 0.05)
 
 [node name="KeyDown" type="Node2D" parent="KeyHints" unique_id=1215555978]
 light_mask = 513
@@ -80,4 +82,4 @@ texture_pressed = ExtResource("9_pxws0")
 
 [node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyDown" unique_id=1716415665]
 position = Vector2(79, 72)
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.05, 0.05)

@@ -6,6 +6,7 @@ const BUS_SFX: String = "SFX"
 
 var _music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 var _interactive_stream: AudioStreamInteractive = null
+var music_playing: MusicEnums.MusicState = MusicEnums.MusicState.NONE
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -44,11 +45,13 @@ func set_music_state(state: MusicEnums.MusicState) -> void:
 	if playback == null:
 		return
 	playback.switch_to_clip(state)
+	music_playing = state
 
 func stop_music() -> void:
 	_music_player.stop()
 	_interactive_stream = null
-
+	music_playing = MusicEnums.MusicState.NONE
+	
 func set_volume(bus_name: String, value: float) -> void:
 	var bus_index: int = AudioServer.get_bus_index(bus_name)
 	if bus_index == -1:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd0mbki1um4vb"
+path="res://.godot/imported/Chat qui boit.mp3-26e82d0823194205b37f51623d1a1da0.mp3str"
+
+[deps]
+
+source_file="res://entities/environement/waterDispenser/Chat qui boit.mp3"
+dest_files=["res://.godot/imported/Chat qui boit.mp3-26e82d0823194205b37f51623d1a1da0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,16 +1,17 @@
 extends StaticBody2D
 
-const DOOR_OPEN_OFFSET: float = 50.0
+const DOOR_OPEN_OFFSET: float = 60.0
 const DOOR_OPEN_DURATION: float = 0.4
 const SPAWN_OFFSET_X: float = 150.0
+const WALK_IN_OFFSET_X: int = 250
 const SCRATCH_REQUIRED: int = 20
 const SCRATCH_IDLE_TIMEOUT: float = 0.7
 
 @export var target_door: NodePath
-@export var walk_in_offset: Vector2 = Vector2(40, 0)
 @export var puzzle_solved: bool = false
 @export var is_arrival_door: bool = false
 @export var advances_tier: bool = false
+@export var reverse_door: bool = false
 @export var open_door_sound: AudioStream = preload("res://entities/environement/door/OpenDoor.mp3")
 @export var deny_sound: AudioStream = preload("res://entities/environement/door/Deny.mp3")
 @export var scratch_loop_sound: AudioStream = preload("res://entities/environement/door/GrattePorteV2.mp3")
@@ -18,13 +19,13 @@ const SCRATCH_IDLE_TIMEOUT: float = 0.7
 
 var is_locked: bool = true
 var player_in_range: bool = false
-
 var _is_scratching: bool = false
 var _scratch_count: int = 0
 var _last_scratch_direction: int = 0
 var _player_ref: CharacterBody2D = null
 var _idle_timer: float = 0.0
 var _scratch_sound_player: AudioStreamPlayer = null
+
 
 @onready var _door1: Sprite2D = $Door1
 @onready var _door2: Sprite2D = $Door2
@@ -47,7 +48,10 @@ func _ready() -> void:
 		unlock(false)
 
 func get_spawn_position() -> Vector2:
-	return global_position + Vector2(SPAWN_OFFSET_X * sign(scale.x), 0)
+	return global_position + Vector2(SPAWN_OFFSET_X * (-1 if reverse_door else 1), 0)
+
+func get_offset() -> Vector2:
+	return Vector2(WALK_IN_OFFSET_X * (-1 if reverse_door else 1),0)
 
 func open_from_arrival() -> void:
 	if is_locked:
@@ -91,6 +95,7 @@ func _start_scratch() -> void:
 	_idle_timer = 0.0
 	_player_ref.controls_enabled = false
 	_player_ref.velocity = Vector2.ZERO
+	_player_ref.sprite.play("gratte")
 	_key_hints.visible = true
 	_key_up._timer = 0.0
 	_key_down._timer = 0.25
@@ -209,7 +214,7 @@ func _trigger_transition(player_body: CharacterBody2D) -> void:
 		player_body,
 		target_level,
 		door.get_spawn_position(),
-		walk_in_offset
+		get_offset()
 	)
 
 func solve_puzzle() -> void:

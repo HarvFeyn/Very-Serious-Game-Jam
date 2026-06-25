@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://fomt1l1fvukk"]
+
+[ext_resource type="Script" uid="uid://dwreybbr7mitb" path="res://levels/world/world.gd" id="1_6rhwe"]
+[ext_resource type="PackedScene" uid="uid://dbm7gqyaousm4" path="res://entities/player/player.tscn" id="2_b8p08"]
+[ext_resource type="PackedScene" uid="uid://dlv7u0e2agwgi" path="res://levels/level2/level2.tscn" id="3_8gvdk"]
+[ext_resource type="PackedScene" uid="uid://csufiw6mlv0eq" path="res://levels/level1/level1.tscn" id="3_b8p08"]
+[ext_resource type="PackedScene" uid="uid://kbt4riqbv72o" path="res://entities/environement/floor/floor.tscn" id="4_le7ry"]
+[ext_resource type="Script" uid="uid://dx53nf4b3r7op" path="res://levels/testLevel/canvas_modulate.gd" id="5_h0il2"]
+
+[node name="World" type="Node2D" unique_id=1156097146 node_paths=PackedStringArray("starting_level", "starting_spawn")]
+script = ExtResource("1_6rhwe")
+starting_level = NodePath("Level1")
+starting_spawn = NodePath("Level1/SpawnPointStart")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1809769850]
+layer = -10
+
+[node name="Level1" parent="." unique_id=203581162 instance=ExtResource("3_b8p08")]
+
+[node name="DoorRight" parent="Level1" index="1" unique_id=1914781586]
+target_door = NodePath("../DoorLeft")
+advances_tier = true
+
+[node name="DoorLeft" parent="Level1" index="2" unique_id=9861939]
+target_door = NodePath("../DoorRight")
+
+[node name="Level2" parent="." unique_id=1041921582 instance=ExtResource("3_8gvdk")]
+
+[node name="DoorLeft" parent="Level2" index="0" unique_id=1914781586]
+target_door = NodePath("../../Level1/DoorRight")
+
+[node name="Floor" parent="." unique_id=1618967398 instance=ExtResource("4_le7ry")]
+position = Vector2(0, 567)
+
+[node name="Player" parent="." unique_id=2145889706 instance=ExtResource("2_b8p08")]
+position = Vector2(35, 548)
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1485284561]
+
+[node name="FadeRect" type="ColorRect" parent="TransitionLayer" unique_id=599865140]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=528629762]
+script = ExtResource("5_h0il2")
+
+[editable path="Level1"]
+[editable path="Level1/PowerWheel"]
+[editable path="Level1/SafeZone"]
+[editable path="Level1/DoorSign"]
+[editable path="Level1/DoorSign2"]
+[editable path="Level1/JumpTrigger"]
+[editable path="Level1/JumpTrigger2"]
+[editable path="Level2"]
+[editable path="Level2/PushableObject"]
+[editable path="Player"]

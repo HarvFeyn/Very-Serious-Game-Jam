@@ -7,4 +7,5 @@ enum MusicState {
 	ROOM2 = 2,
 	ROOM3 = 3,
 	STRESS = 4,
+	NONE = 1000,
 }

@@ -6,6 +6,7 @@ extends PointLight2D
 var _is_blinking: bool = false
 
 func _ready() -> void:
+	color = GameColors.ALARM_RED
 	visible = false
 	EventBus.alarm_activated.connect(_on_alarm_activated)
 	EventBus.alarm_deactivated.connect(_on_alarm_deactivated)

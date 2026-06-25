@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://blar4n3vrvxgl" path="res://entities/environement/lights/alarmLight/alarm_light.gd" id="2_cbumo"]
 
 [node name="AlarmLight" type="PointLight2D" unique_id=818889376]
-color = Color(0.8357183, 3.2247603e-06, 7.70092e-07, 1)
 energy = 1.5
 texture = ExtResource("1_jboqm")
 script = ExtResource("2_cbumo")

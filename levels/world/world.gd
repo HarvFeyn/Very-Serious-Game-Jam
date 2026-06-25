@@ -9,5 +9,7 @@ func _ready() -> void:
 	AudioManager.set_music_state(MusicEnums.MusicState.STRESS)
 	
 func _exit_tree() -> void:
+	Globals.is_returning_to_menu = true
 	PowerManager.full_reset()
-	AudioManager.set_music_state(MusicEnums.MusicState.MENU)
+	if AudioManager.music_playing != MusicEnums.MusicState.MENU:
+		AudioManager.set_music_state(MusicEnums.MusicState.MENU)

@@ -13,7 +13,6 @@ var _active_bars: int = 1
 
 func _ready() -> void:
 	visible = true
-	EventBus.wheel_progress_changed.connect(_on_progress_changed)
 	EventBus.tier_advanced.connect(_on_tier_advanced)
 	EventBus.power_level_changed.connect(_on_power_level_changed)
 	EventBus.power_depleted.connect(_on_power_depleted)
@@ -32,10 +31,8 @@ func _on_power_depleted() -> void:
 
 func _on_game_reset() -> void:
 	_update_bars(0.0)
-
-func _on_progress_changed(progress: float) -> void:
-	_update_bars(progress)
-
+	_active_bars = 1
+	
 func _on_tier_advanced(tier: int) -> void:
 	_active_bars = tier + 1
 	_update_bar_colors()
@@ -50,11 +47,10 @@ func _make_stylebox(color: Color) -> StyleBoxFlat:
 	style.bg_color = color
 	return style
 
-func _update_bars(progress: float) -> void:
-	var max_progress: float = float(_active_bars) / 3.0
+func _update_bars(ratio: float) -> void:
+	var max_ratio: float = float(_active_bars) / 3.0
+	var clamped: float = minf(ratio, max_ratio)
 
-	var clamped: float = minf(progress, max_progress)
-
-	_bar1.value = clampf((clamped / (1.0 / 3.0)), 0.0, 1.0) * 100.0
-	_bar2.value = clampf(((clamped - 1.0 / 3.0) / (1.0 / 3.0)), 0.0, 1.0) * 100.0
-	_bar3.value = clampf(((clamped - 2.0 / 3.0) / (1.0 / 3.0)), 0.0, 1.0) * 100.0
+	_bar1.value = clampf(clamped / (1.0 / 3.0), 0.0, 1.0) * 100.0
+	_bar2.value = clampf((clamped - 1.0 / 3.0) / (1.0 / 3.0), 0.0, 1.0) * 100.0
+	_bar3.value = clampf((clamped - 2.0 / 3.0) / (1.0 / 3.0), 0.0, 1.0) * 100.0

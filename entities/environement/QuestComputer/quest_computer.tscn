@@ -22,8 +22,8 @@ text = "- Unlock engine room"
 
 [node name="Quest2" type="Label" parent="VBoxContainer" unique_id=1387086154]
 layout_mode = 2
-text = "- Repair engine"
+text = "- Start the engine"
 
 [node name="Quest3" type="Label" parent="VBoxContainer" unique_id=1803840663]
 layout_mode = 2
-text = "- Start auto pilot"
+text = "- Repair auto pilot"

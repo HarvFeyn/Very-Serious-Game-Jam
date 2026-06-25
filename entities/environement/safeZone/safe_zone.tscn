@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4u0ogesp6jip" path="res://entities/environement/safeZone/safe_zone.gd" id="1_uxgw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xg5j"]
-size = Vector2(1066, 932)
+size = Vector2(971, 932)
 
 [node name="SafeZone" type="Area2D" unique_id=1750926026]
 script = ExtResource("1_uxgw2")
