@@ -60,7 +60,6 @@ rotation_speed = 0.1
 
 [node name="DoorRight" parent="." unique_id=1914781586 instance=ExtResource("3_ps0pm")]
 position = Vector2(3057, 431)
-puzzle_solved = true
 
 [node name="DoorLeft" parent="." unique_id=9861939 instance=ExtResource("3_ps0pm")]
 position = Vector2(188, 429)

@@ -20,6 +20,6 @@ shape = SubResource("RectangleShape2D_a0mkd")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1317420920]
 scale = Vector2(1.5, 1.5)
-color = Color(4.9093364e-06, 0.75269306, 0.75269294, 1)
-energy = 2.0
+color = Color(1.21289495e-05, 0.83249754, 0.83249784, 1)
+energy = 3.0
 texture = ExtResource("3_dnmlv")

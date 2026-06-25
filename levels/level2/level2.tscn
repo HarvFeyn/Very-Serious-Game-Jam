@@ -58,7 +58,8 @@ overheat_sound = ExtResource("6_h2q84")
 running_sound = ExtResource("7_1gyy6")
 
 [node name="Fuel" parent="." unique_id=2133284459 instance=ExtResource("11_yrnt5")]
-position = Vector2(954.9999, 450)
+position = Vector2(981.9999, 445.00006)
+rotation = -0.2617994
 scale = Vector2(0.12, 0.12)
 engine = NodePath("../Engine")
 
