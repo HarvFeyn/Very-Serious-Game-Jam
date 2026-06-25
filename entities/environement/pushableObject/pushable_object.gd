@@ -2,6 +2,8 @@ extends AnimatableBody2D
 
 @export var limit_left: float = -INF
 @export var limit_right: float = INF
+const push_sound: AudioStream = preload("res://entities/environement/pushableObject/Pousser tabouret 1.mp3")
+var _push_sound_player: AudioStreamPlayer = null
 
 var _player_ref: CharacterBody2D = null
 var _push_direction: int = 0
@@ -68,7 +70,17 @@ func _start_push() -> void:
 	_player_ref.speed = _player_ref._base_speed * _player_ref.push_speed_multiplier
 	_player_ref.sprite.play("push")
 	EventBus.interaction_unavailable.emit()
-
+	
+	if _push_sound_player != null or push_sound == null:
+		return
+	_push_sound_player = AudioStreamPlayer.new()
+	_push_sound_player.bus = AudioManager.BUS_SFX
+	_push_sound_player.stream = push_sound
+	_push_sound_player.volume_db = 0.0
+	_push_sound_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(_push_sound_player)
+	_push_sound_player.play()
+	
 func _handle_push(delta: float) -> void:
 	var player_input: float = Input.get_axis("move_left", "move_right")
 	var input_direction: int = sign(player_input) as int
@@ -90,9 +102,12 @@ func _stop_push() -> void:
 		_player_ref.sprite.play("run")
 	if _player_in_range:
 		EventBus.interaction_available.emit("Press E to push")
-
+		
+	_stop_sound()
+	
 func _full_cancel() -> void:
 	_is_being_pushed = false
+	_stop_sound()
 	if _player_ref != null:
 		_player_ref.is_pushing = false
 		_player_ref.push_direction = 0
@@ -104,5 +119,12 @@ func _full_cancel() -> void:
 
 func _on_game_reset() -> void:
 	global_position = _initial_position
+	_stop_sound()
 	if _player_ref != null:
 		_full_cancel()
+
+func _stop_sound() -> void:
+	if _push_sound_player != null:
+		_push_sound_player.stop()
+		_push_sound_player.queue_free()
+		_push_sound_player = null

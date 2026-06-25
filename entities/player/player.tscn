@@ -105,7 +105,7 @@ script = ExtResource("1_symyc")
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1715745196]
 scale = Vector2(0.28, 0.28)
 sprite_frames = SubResource("SpriteFrames_bectd")
-animation = &"gratte"
+animation = &"push"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313738173]
 rotation = 1.5707964

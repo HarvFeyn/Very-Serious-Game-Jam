@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var engine: NodePath
+@export var player_fuel_offset: Vector2 = Vector2(95, 20)
+@export var fuel_offset: Vector2 = Vector2(-24, -16)
+@export var interaction_duration: float = 5.0
 @onready var _light: PointLight2D = $PointLight2D
 
 var _player_in_range: bool = false
@@ -38,7 +41,14 @@ func _trigger() -> void:
 	visible = false
 	var engine_node: CatEngine = get_node(engine) as CatEngine
 	engine_node.on_fuel_inserted()
-
+	_player_ref.is_in_lock_mode = true
+	_player_ref.global_position = global_position + player_fuel_offset
+	_player_ref.sprite.flip_h = true
+	_player_ref.sprite.play("push")
+	await get_tree().create_timer(interaction_duration).timeout
+	_player_ref.sprite.stop()
+	_player_ref.is_in_lock_mode = false
+	
 func _on_game_reset() -> void:
 	_is_used = false
 	visible = true
