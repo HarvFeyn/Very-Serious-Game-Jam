@@ -29,6 +29,7 @@ EventBus="*uid://cs3sj6oq5sr1a"
 SceneManager="*uid://ujelgaf6s5tw"
 PowerManager="*uid://cm65tlac7u7y2"
 LevelManager="*uid://bkpcxou5wuvy5"
+GameProgress="*uid://s37gkns11fm7"
 
 [debug]
 

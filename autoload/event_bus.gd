@@ -29,3 +29,6 @@ signal power_level_changed(ratio: float)
 
 signal jump_hint_requested
 signal jump_hint_dismissed
+
+signal quest_discovered(index: int)
+signal ai_message(text: String)

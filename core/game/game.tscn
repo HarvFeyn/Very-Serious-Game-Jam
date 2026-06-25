@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cay6gaa2v0hir" path="res://ui/hud/peeBar/pee_bar.tscn" id="6_00x87"]
 [ext_resource type="Script" uid="uid://ccyc1m35g6184" path="res://core/game/energy_timer.gd" id="7_xakte"]
 [ext_resource type="Script" uid="uid://bykq101kvm0wf" path="res://core/game/quest_log.gd" id="8_xmhhf"]
+[ext_resource type="PackedScene" uid="uid://dkjwu8672n48t" path="res://ui/hud/ai_box/ai_box.tscn" id="9_camtn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xakte"]
 bg_color = Color(0.796243, 0.796243, 0.796243, 0.47058824)
@@ -53,13 +54,14 @@ script = ExtResource("4_kelw5")
 visible = false
 
 [node name="PeeBar" parent="UI" unique_id=1240341946 instance=ExtResource("6_00x87")]
-offset_left = 658.9999
-offset_top = 176.00002
-offset_right = 658.9999
-offset_bottom = 176.00002
-scale = Vector2(0.12, 0.12)
+offset_left = 500.005
+offset_top = 500.0
+offset_right = 500.005
+offset_bottom = 500.0
+scale = Vector2(0.09, 0.09)
 
 [node name="EnergyTimer" type="Label" parent="UI" unique_id=1286005241]
+visible = false
 offset_left = 64.0
 offset_top = 44.0
 offset_right = 104.0
@@ -71,6 +73,7 @@ horizontal_alignment = 1
 script = ExtResource("7_xakte")
 
 [node name="QuestLog" type="VBoxContainer" parent="UI" unique_id=1992770452]
+visible = false
 offset_left = 48.0
 offset_top = 112.0
 offset_right = 340.0
@@ -100,6 +103,12 @@ theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "- Réparer la salle 3"
 fit_content = true
+
+[node name="AiBox" parent="UI" unique_id=1129732966 instance=ExtResource("9_camtn")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
 
 [connection signal="pressed" from="UI/TextureButton" to="." method="_on_texture_button_pressed"]
 

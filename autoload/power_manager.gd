@@ -59,7 +59,6 @@ func get_max_energy_for_tier() -> float:
 	return get_current_max_duration()
 
 func is_tier_full() -> bool:
-	print("depletion_timer: ", _depletion_timer, " max: ", get_max_energy_for_tier())
 	return _depletion_timer >= get_max_energy_for_tier()
 
 func add_energy(amount: float) -> void:

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dkjwu8672n48t"]
+
+[ext_resource type="Script" uid="uid://cpvf45hudcbrn" path="res://ui/hud/ai_box/ai_box.gd" id="1_1ajuu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22mxp"]
+content_margin_left = 24.0
+content_margin_top = 14.0
+content_margin_right = 24.0
+content_margin_bottom = 14.0
+bg_color = Color(0.078431375, 0.0627451, 0.10980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9254902, 0.39607844, 0.8392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="AiBox" type="Control" unique_id=1129732966]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1ajuu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1767729491]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 20.0
+offset_right = 260.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_22mxp")
+
+[node name="Label" type="RichTextLabel" parent="Panel" unique_id=462176506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CornerTL" type="ColorRect" parent="Panel" unique_id=278184962]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 14.0
+offset_bottom = 6.0
+color = Color(0.9254902, 0.39607844, 0.8392157, 1)
+
+[node name="CornerTR" type="ColorRect" parent="Panel" unique_id=1068172524]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 4.0
+offset_right = 516.0
+offset_bottom = 6.0
+color = Color(0.9254902, 0.39607844, 0.8392157, 1)
+
+[node name="CornerBL" type="ColorRect" parent="Panel" unique_id=1373989518]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 54.0
+offset_right = 14.0
+offset_bottom = 56.0
+color = Color(0.9254902, 0.39607844, 0.8392157, 1)
+
+[node name="CornerBR" type="ColorRect" parent="Panel" unique_id=1361783485]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 54.0
+offset_right = 516.0
+offset_bottom = 56.0
+color = Color(0.9254902, 0.39607844, 0.8392157, 1)
