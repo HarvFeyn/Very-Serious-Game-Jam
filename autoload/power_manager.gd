@@ -26,6 +26,7 @@ const WHEEL_EXIT_DURATION: float = 1.0
 
 var energy_per_alternation: float = 1
 var _wheel_is_active: bool = false
+var _critical_emitted: bool = false
 
 enum LightLevel {
 	FULL,
@@ -86,6 +87,7 @@ func _on_wheel_started() -> void:
 	
 func _on_wheel_finished() -> void:
 	_wheel_is_active = false
+	_critical_emitted = false
 	_set_light_level(LightLevel.FULL, WHEEL_EXIT_DURATION)
 	EventBus.power_recharged.emit()
 	EventBus.alarm_deactivated.emit()
@@ -113,7 +115,11 @@ func _process(delta: float) -> void:
 	if _depletion_timer <= 0.0:
 		_on_power_depleted()
 		return
-
+	
+	if _depletion_timer <= CRITICAL_THRESHOLD and not _critical_emitted:
+		_critical_emitted = true
+		_on_power_critical()
+		
 	EventBus.power_level_changed.emit(time_remaining / get_current_max_duration())
 	
 	if not _wheel_is_active:
@@ -167,6 +173,9 @@ func _on_power_depleted() -> void:
 	_set_light_level(LightLevel.DEPLETED)
 	EventBus.power_depleted.emit()
 
+func _on_power_critical() -> void:
+	EventBus.power_critical.emit()
+	
 func full_reset() -> void:
 	if _step_tween:
 		_step_tween.kill()
@@ -174,6 +183,7 @@ func full_reset() -> void:
 	time_remaining = 0.0
 	_depletion_timer = 0.0
 	is_powered = false
+	_critical_emitted = false
 	_current_light_level = LightLevel.DEPLETED
 	_current_color = DEPLETED_COLOR
 	if AudioManager.music_playing != MusicEnums.MusicState.STRESS:

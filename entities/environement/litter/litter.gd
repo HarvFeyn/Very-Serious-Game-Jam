@@ -4,7 +4,10 @@ extends Node2D
 
 @export var target_door: NodePath
 @export var interaction_sound: AudioStream
-@export var interaction_duration: float = 10.0
+@export var sparks_sound: AudioStream = preload("res://audio/SFX/Electricité-bzz-2.mp3")
+@export var interaction_duration: float = 3.0
+@export var sparks_duration: float = 1.0
+@export var interaction_finish_duration: float = 2.0
 @export var player_litter_offset: Vector2 = Vector2(5, -50)
 
 var _player_in_range: bool = false
@@ -55,17 +58,25 @@ func _trigger() -> void:
 	tween.tween_method(_set_direction_y, -0.5, -1.0, interaction_duration)
 	tween.tween_property(_particles, "initial_velocity_min", 400.0, interaction_duration)
 	tween.tween_property(_particles, "initial_velocity_max", 500.0, interaction_duration)
-
 	await get_tree().create_timer(interaction_duration).timeout
-	
-	PowerManager.advance_tier()
-	_particles.emitting = false
-	
-	_player_ref.sprite.stop()
-	_player_ref.is_in_lock_mode = false
-
+	AudioManager.play_sfx(sparks_sound)
+	await get_tree().create_timer(sparks_duration).timeout
+	AudioManager.play_sfx(sparks_sound)
+	await get_tree().create_timer(sparks_duration).timeout
+	AudioManager.play_sfx(sparks_sound)
+	await get_tree().create_timer(3.0).timeout
 	var door: StaticBody2D = get_node(target_door) as StaticBody2D
 	door.solve_puzzle()
+	EventBus.quest_discovered.emit(2)
+	await get_tree().create_timer(interaction_finish_duration).timeout
+	
+	_particles.emitting = false
+	_player_ref.sprite.stop()
+	_player_ref.is_in_lock_mode = false
+	
+	
+	
+	
 
 func _on_game_reset() -> void:
 	_is_used = false

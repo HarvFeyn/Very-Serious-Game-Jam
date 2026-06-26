@@ -16,6 +16,7 @@ const SCRATCH_IDLE_TIMEOUT: float = 0.7
 @export var deny_sound: AudioStream = preload("res://entities/environement/door/Deny.mp3")
 @export var scratch_loop_sound: AudioStream = preload("res://entities/environement/door/GrattePorteV2.mp3")
 @export var door_puzzle_solved: AudioStream = preload("res://entities/environement/door/UnlockDoor.mp3")
+@export var quest_index: int = -1
 
 var is_locked: bool = true
 var player_in_range: bool = false
@@ -180,6 +181,8 @@ func unlock(play_sound: bool) -> void:
 	_animate_doors_open()
 	if play_sound and open_door_sound:
 		AudioManager.play_sfx(open_door_sound, 10.0)
+	if quest_index >= 0:
+		EventBus.quest_discovered.emit(quest_index)
 
 func _animate_doors_open() -> void:
 	var tween: Tween = create_tween()

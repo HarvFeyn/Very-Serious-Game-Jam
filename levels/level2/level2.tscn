@@ -17,10 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://ripl64ygyv35" path="res://entities/environement/valve/Valve etape 3.mp3" id="13_1gyy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6moi3"]
-size = Vector2(100, 181.11111)
+size = Vector2(80, 181.11111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho0tc"]
-size = Vector2(25, 114.33334)
+size = Vector2(21.111023, 114.33334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbwgw"]
 size = Vector2(25.277771, 112.222244)
@@ -77,21 +77,21 @@ scale = Vector2(0.34, 0.34)
 texture = ExtResource("10_h2q84")
 
 [node name="CollisionShape2D" parent="PushableObject" index="1" unique_id=2004040421]
-position = Vector2(52, 115)
+position = Vector2(52.222168, 115)
 shape = SubResource("RectangleShape2D_6moi3")
 
 [node name="PushAreaLeft" parent="PushableObject" index="2" unique_id=2104469945]
 position = Vector2(0, 5.555542)
 
 [node name="CollisionShape2D" parent="PushableObject/PushAreaLeft" index="0" unique_id=478890218]
-position = Vector2(-11, 143.8334)
+position = Vector2(1.6664429, 143.8334)
 shape = SubResource("RectangleShape2D_ho0tc")
 
 [node name="PushAreaRight" parent="PushableObject" index="3" unique_id=1006554691]
 position = Vector2(0, 5.555542)
 
 [node name="CollisionShape2D" parent="PushableObject/PushAreaRight" index="0" unique_id=659951142]
-position = Vector2(115.138916, 143.88889)
+position = Vector2(105.138916, 143.88889)
 shape = SubResource("RectangleShape2D_tbwgw")
 
 [node name="RoomLight" parent="." unique_id=1946417331 instance=ExtResource("6_ho0tc")]

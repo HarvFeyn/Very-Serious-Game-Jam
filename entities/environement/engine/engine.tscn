@@ -10,8 +10,9 @@ script = ExtResource("1_yut80")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687726437]
 texture = ExtResource("1_w2l1o")
 
-[node name="LitterParticles" type="CPUParticles2D" parent="." unique_id=585929464]
+[node name="EnergyParticles" type="CPUParticles2D" parent="." unique_id=585929464]
 position = Vector2(-2, 119)
+emitting = false
 amount = 50
 texture = ExtResource("3_x1ath")
 lifetime = 5.0

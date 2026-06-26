@@ -9,17 +9,19 @@ var _player_in_range: bool = false
 var _player_ref: CharacterBody2D = null
 var _is_drinking: bool = false
 var _drink_sound_player: AudioStreamPlayer = null
-
+var _is_used: bool
 
 func _ready() -> void:
 	$InteractionArea.body_entered.connect(_on_body_entered)
 	$InteractionArea.body_exited.connect(_on_body_exited)
-
+	_is_used = false
+	EventBus.game_reset.connect(_on_game_reset)
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = true
 		_player_ref = body as CharacterBody2D
-		if Globals.pee_level < 1.0:
+		if Globals.pee_level < 1.0 and not _is_used:
 			EventBus.interaction_available.emit("Hold E to drink")
 
 func _on_body_exited(body: Node2D) -> void:
@@ -29,7 +31,7 @@ func _on_body_exited(body: Node2D) -> void:
 		EventBus.interaction_unavailable.emit()
 
 func _process(delta: float) -> void:
-	if not _player_in_range or Globals.pee_level >= 1.0:
+	if not _player_in_range or Globals.pee_level >= 1.0 or _is_used:
 		return
 
 	if Input.is_action_pressed("interact"):
@@ -73,5 +75,9 @@ func _fill(delta: float) -> void:
 	EventBus.pee_changed.emit(Globals.pee_level)
 	if Globals.pee_level >= 1.0:
 		_stop_drinking()
+		_is_used = true
 		EventBus.pee_full.emit()
 		EventBus.interaction_unavailable.emit()
+
+func _on_game_reset() -> void:
+	_is_used = false

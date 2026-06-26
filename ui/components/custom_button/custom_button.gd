@@ -1,7 +1,7 @@
 class_name CustomButton
 extends Button
 
-@export var click_sound: AudioStream
+@export var click_sound: AudioStream = preload("res://audio/SFX/Clavier3.mp3")
 @export var hover_sound: AudioStream
 @export var enable_tween: bool = true
 
@@ -40,7 +40,7 @@ func _on_mouse_exited() -> void:
 
 
 func _on_button_down() -> void:
-	AudioManager.play_sfx(click_sound)
+	AudioManager.play_sfx(click_sound,-10.0)
 	if enable_tween:
 		_scale_to(SCALE_PRESS)
 		_rotate_to(ROTATION_NORMAL)

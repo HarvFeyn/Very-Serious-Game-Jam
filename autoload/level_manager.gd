@@ -97,7 +97,8 @@ func _activate_level(level: GameLevel) -> void:
 			var is_active: bool = (game_level_sibling == level)
 			game_level_sibling.visible = is_active
 			game_level_sibling.process_mode = Node.PROCESS_MODE_INHERIT if is_active else Node.PROCESS_MODE_DISABLED
-
+	
+	EventBus.level_changed.emit(level)
 	_apply_camera_limits(level)
 
 func _apply_camera_limits(level: GameLevel) -> void:

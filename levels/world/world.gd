@@ -8,6 +8,9 @@ func _ready() -> void:
 	$Player.global_position = starting_spawn.global_position
 	AudioManager.set_music_state(MusicEnums.MusicState.STRESS)
 	
+	await get_tree().create_timer(1.0).timeout
+	EventBus.quest_discovered.emit(0)
+	
 func _exit_tree() -> void:
 	Globals.is_returning_to_menu = true
 	PowerManager.full_reset()

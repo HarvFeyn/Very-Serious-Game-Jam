@@ -11,10 +11,13 @@ func _ready() -> void:
 	$InteractionArea.body_exited.connect(_on_body_exited)
 	EventBus.game_reset.connect(_on_game_reset)
 
+func _get_engine() -> CatEngine:
+	return get_node(engine) as CatEngine
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = true
-		if not _is_turned:
+		if not _is_turned and _get_engine().fuel_inserted:
 			EventBus.interaction_available.emit("Press E to turn valve")
 
 func _on_body_exited(body: Node2D) -> void:
@@ -23,7 +26,8 @@ func _on_body_exited(body: Node2D) -> void:
 		EventBus.interaction_unavailable.emit()
 
 func _process(_delta: float) -> void:
-	if _player_in_range and not _is_turned and Input.is_action_just_pressed("interact"):
+	if _player_in_range and not _is_turned and _get_engine().fuel_inserted \
+			and Input.is_action_just_pressed("interact"):
 		_trigger()
 
 func _trigger() -> void:
@@ -31,8 +35,7 @@ func _trigger() -> void:
 	EventBus.interaction_unavailable.emit()
 	if turn_sound:
 		AudioManager.play_sfx(turn_sound, 10.0)
-	var engine_node: CatEngine = get_node(engine) as CatEngine
-	engine_node.on_valve_turned()
+	_get_engine().on_valve_turned()
 
 func _on_game_reset() -> void:
 	_is_turned = false

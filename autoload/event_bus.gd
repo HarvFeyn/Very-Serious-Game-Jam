@@ -5,6 +5,7 @@ signal interaction_unavailable
 
 signal power_recharged
 signal power_depleted
+signal power_critical
 signal power_color_changed(color: Color)
 signal alarm_activated
 signal alarm_deactivated
@@ -32,3 +33,5 @@ signal jump_hint_dismissed
 
 signal quest_discovered(index: int)
 signal ai_message(text: String)
+
+signal level_changed(active_level: GameLevel)
