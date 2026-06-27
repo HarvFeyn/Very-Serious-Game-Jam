@@ -5,10 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cybxolqig5ana" path="res://entities/environement/door/Porte2.png" id="3_d2qnx"]
 [ext_resource type="Texture2D" uid="uid://lbga8pid2kct" path="res://entities/environement/door/CadrePorte.png" id="4_qswej"]
 [ext_resource type="Script" uid="uid://bo37dqiv8k4js" path="res://ui/hud/pressKey/key_hint.gd" id="5_x5btg"]
-[ext_resource type="Texture2D" uid="uid://d36p52a0on8mb" path="res://ui/hud/pressKey/sprite_top_v20.png" id="6_7qtnd"]
-[ext_resource type="Texture2D" uid="uid://colgtrvn87eho" path="res://ui/hud/pressKey/sprite_arrow_top1.png" id="7_7qtnd"]
-[ext_resource type="Texture2D" uid="uid://cofqmqq5a26dj" path="res://ui/hud/pressKey/sprite_bottom_v20.png" id="8_7qtnd"]
-[ext_resource type="Texture2D" uid="uid://3ibe8re78577" path="res://ui/hud/pressKey/sprite_bottom_v21.png" id="9_pxws0"]
+[ext_resource type="Texture2D" uid="uid://bimursvf6youy" path="res://ui/hud/pressKey/sprite_arrow _top0.png" id="6_pxws0"]
+[ext_resource type="Texture2D" uid="uid://bqs6ft71ea5hk" path="res://ui/hud/pressKey/sprite_arrow _top1.png" id="7_2rcuh"]
+[ext_resource type="Texture2D" uid="uid://c4nr5qsa725sd" path="res://ui/hud/pressKey/sprite_arrow _top2.png" id="8_8mmst"]
+[ext_resource type="Texture2D" uid="uid://buduxe843euln" path="res://ui/hud/pressKey/sprite_arrow_bottom0.png" id="9_2rcuh"]
+[ext_resource type="Texture2D" uid="uid://dme0r675emu7o" path="res://ui/hud/pressKey/sprite_arrow_bottom1.png" id="10_8mmst"]
+[ext_resource type="Texture2D" uid="uid://csrdq8c6ldypn" path="res://ui/hud/pressKey/sprite_arrow_bottom2.png" id="11_gibu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
 size = Vector2(137, 398)
@@ -66,8 +68,9 @@ shape = SubResource("RectangleShape2D_dafue")
 light_mask = 513
 visibility_layer = 513
 script = ExtResource("5_x5btg")
-texture_released = ExtResource("6_7qtnd")
-texture_pressed = ExtResource("7_7qtnd")
+texture_released = ExtResource("6_pxws0")
+texture_pressed = ExtResource("7_2rcuh")
+texture_woaaaw = ExtResource("8_8mmst")
 
 [node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyUp" unique_id=1640276895]
 position = Vector2(78.99999, 0)
@@ -77,8 +80,9 @@ scale = Vector2(0.05, 0.05)
 light_mask = 513
 visibility_layer = 513
 script = ExtResource("5_x5btg")
-texture_released = ExtResource("8_7qtnd")
-texture_pressed = ExtResource("9_pxws0")
+texture_released = ExtResource("9_2rcuh")
+texture_pressed = ExtResource("10_8mmst")
+texture_woaaaw = ExtResource("11_gibu0")
 
 [node name="Sprite2D" type="Sprite2D" parent="KeyHints/KeyDown" unique_id=1716415665]
 position = Vector2(79, 72)

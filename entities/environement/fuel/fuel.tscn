@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://c45cwk8kls8kp" path="res://entities/environement/fuel/fuel.gd" id="1_a0mkd"]
 [ext_resource type="Texture2D" uid="uid://0on8w55ls7q7" path="res://entities/environement/fuel/Carburant.png" id="1_he6ky"]
+[ext_resource type="Shader" uid="uid://c644re4jsvyjg" path="res://shared/shader/highlight.gdshader" id="2_6axjh"]
 [ext_resource type="Texture2D" uid="uid://iqmwsensq11a" path="res://entities/environement/lights/light_radial.png" id="3_dnmlv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elo2y"]
+shader = ExtResource("2_6axjh")
+shader_parameter/outline_color = Color(1, 0.9, 0, 1)
+shader_parameter/outline_width = 20.0
+shader_parameter/glow_intensity = 5.0
+shader_parameter/pulse_speed = 2.0
+shader_parameter/glow_samples = 8
+shader_parameter/enabled = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0mkd"]
 size = Vector2(1041.667, 1225)
@@ -11,6 +21,7 @@ size = Vector2(1041.667, 1225)
 script = ExtResource("1_a0mkd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=725744417]
+material = SubResource("ShaderMaterial_elo2y")
 texture = ExtResource("1_he6ky")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=2062689387]

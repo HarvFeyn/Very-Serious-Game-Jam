@@ -5,6 +5,9 @@ extends Button
 @export var hover_sound: AudioStream
 @export var enable_tween: bool = true
 
+@onready var corner_tl: ColorRect = $CornerTL
+@onready var corner_br: ColorRect = $CornerBR
+
 const SCALE_HOVER: Vector2 = Vector2(1.05, 1.05)
 const SCALE_PRESS: Vector2 = Vector2(0.95, 0.95)
 const SCALE_NORMAL: Vector2 = Vector2(1.0, 1.0)
@@ -20,6 +23,8 @@ func _ready() -> void:
 	mouse_exited.connect(_on_mouse_exited)
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
+	corner_tl.color = GameColors.UI_COLOR_SECONDARY
+	corner_br.color = GameColors.UI_COLOR_SECONDARY
 
 
 func _update_pivot() -> void:

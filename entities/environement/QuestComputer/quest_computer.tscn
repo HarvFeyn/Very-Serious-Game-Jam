@@ -1,29 +1,32 @@
 [gd_scene format=3 uid="uid://bb35qfvvg1orv"]
 
 [ext_resource type="Script" uid="uid://jayxd2yrafyl" path="res://entities/environement/QuestComputer/quest_computer.gd" id="1_dkt0n"]
-[ext_resource type="Texture2D" uid="uid://c42c7emxcubfh" path="res://entities/environement/QuestComputer/Ordi.png" id="1_u7ksx"]
+[ext_resource type="Texture2D" uid="uid://bxtqg4tsbk5jf" path="res://entities/environement/QuestComputer/Ordi couleur.png" id="2_dkt0n"]
 
 [node name="QuestComputer" type="Node2D" unique_id=16126992]
 script = ExtResource("1_dkt0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=431104235]
-texture = ExtResource("1_u7ksx")
+texture = ExtResource("2_dkt0n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=489950429]
 offset_left = -133.0
 offset_top = -213.0
 offset_right = 32.0
 offset_bottom = -136.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 
 [node name="Quest1" type="Label" parent="VBoxContainer" unique_id=1073079545]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "- Unlock engine room"
 
 [node name="Quest2" type="Label" parent="VBoxContainer" unique_id=1387086154]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "- Start the engine"
 
 [node name="Quest3" type="Label" parent="VBoxContainer" unique_id=1803840663]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "- Repair auto pilot"

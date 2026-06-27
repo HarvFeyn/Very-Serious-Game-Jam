@@ -26,6 +26,7 @@ func on_fuel_inserted() -> void:
 	if not _valve_turned:
 		_start_shake()
 	_check_puzzle()
+	_EnergyParticles.color = GameColors.FUEL_OVERHEAT
 	_EnergyParticles.emitting = true
 
 func on_valve_turned() -> void:
@@ -33,7 +34,8 @@ func on_valve_turned() -> void:
 	_stop_shake()
 	_update_engine_sound()
 	_check_puzzle()
-
+	_EnergyParticles.color = GameColors.FUEL_CHILL
+	
 func _start_shake() -> void:
 	if _shake_tween:
 		_shake_tween.kill()
@@ -85,6 +87,7 @@ func _on_game_reset() -> void:
 	_valve_turned = false
 	_stop_sound()
 	_stop_shake()
+	_EnergyParticles.emitting = false
 
 func _on_level_changed(active_level: GameLevel, my_level: GameLevel) -> void:
 	if _sound_player == null:

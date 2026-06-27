@@ -17,6 +17,10 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="AiBox" type="Control" unique_id=1129732966]
 layout_mode = 3
@@ -28,10 +32,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -260.0
+offset_left = -270.0
 offset_top = 20.0
-offset_right = 260.0
-offset_bottom = 80.0
+offset_right = 270.0
+offset_bottom = 100.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_22mxp")
 
@@ -42,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
@@ -57,24 +62,24 @@ color = Color(0.9254902, 0.39607844, 0.8392157, 1)
 
 [node name="CornerTR" type="ColorRect" parent="Panel" unique_id=1068172524]
 layout_mode = 0
-offset_left = 506.0
+offset_left = 526.0
 offset_top = 4.0
-offset_right = 516.0
+offset_right = 536.0
 offset_bottom = 6.0
 color = Color(0.9254902, 0.39607844, 0.8392157, 1)
 
 [node name="CornerBL" type="ColorRect" parent="Panel" unique_id=1373989518]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 54.0
+offset_top = 74.0
 offset_right = 14.0
-offset_bottom = 56.0
+offset_bottom = 76.0
 color = Color(0.9254902, 0.39607844, 0.8392157, 1)
 
 [node name="CornerBR" type="ColorRect" parent="Panel" unique_id=1361783485]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 54.0
-offset_right = 516.0
-offset_bottom = 56.0
+offset_left = 526.0
+offset_top = 74.0
+offset_right = 536.0
+offset_bottom = 76.0
 color = Color(0.9254902, 0.39607844, 0.8392157, 1)

@@ -25,5 +25,5 @@ initial_velocity_max = 60.0
 angular_velocity_min = 2.0
 angular_velocity_max = 5.0
 scale_amount_min = 0.01
-scale_amount_max = 0.05
+scale_amount_max = 0.04
 color = Color(0.89480925, 0.98715883, 0.9874651, 1)

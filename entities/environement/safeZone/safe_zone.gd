@@ -3,7 +3,7 @@ extends Area2D
 @export var return_point: Marker2D
 @export var push_back_sound: AudioStream
 
-const PUSHBACK_DURATION: float = 1.5
+const PUSHBACK_DURATION: float = 0.7
 
 var _player_in_zone: bool = false
 var _player_ref: CharacterBody2D = null

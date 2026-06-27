@@ -15,9 +15,15 @@ enum Stage {
 }
 
 const CRITICAL_MESSAGES: Array[String] = [
-	"Power critical. Spin the wheel or enjoy the dark. Your call, brave kitty.",
-	"Power almost gone. Wheel. Spin. Now. We can discuss the details later.",
-	"Critical power. Fun fact: cats can't actually see in complete darkness. Spin. Fast."
+	"Power critical. Spin the wheel. Or enjoy the dark, brave kitty.",
+	"Power almost gone. Wheel. Spin. Now. Details later.",
+	"Fun fact: cats can't actually see in complete darkness. Spin. Fast."
+]
+
+const GAME_OVER_MESSAGES: Array[String] = [
+	"Blackout. Cat is hiding under the bed. Next time, spin the wheel.",
+	"Power lost. Cat hiding. The wheel exists for a reason.",
+	"Blackout. Cat in panic mode. Remember: wheel goes spin."
 ]
 
 signal stage_changed(stage: Stage)
@@ -83,6 +89,8 @@ func _on_game_reset() -> void:
 	current_stage = Stage.INTRO
 	current_quest_index = -1
 	current_power_tier = PowerManager.PowerTier.TIER_1
+	var message: String = GAME_OVER_MESSAGES[randi() % GAME_OVER_MESSAGES.size()]
+	EventBus.ai_message.emit(message)
 
 func _set_stage(stage: Stage) -> void:
 	if stage == current_stage:

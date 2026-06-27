@@ -1,20 +1,31 @@
 [gd_scene format=3 uid="uid://dcs65hbt8ciin"]
 
-[ext_resource type="Texture2D" uid="uid://c1xe4y51j2q8j" path="res://ui/components/texture_button/gear.png" id="1_pq510"]
+[ext_resource type="Texture2D" uid="uid://c3y6de0364wdg" path="res://ui/components/texture_button/engrenage657.png" id="1_u1isi"]
 [ext_resource type="Script" uid="uid://dwa4qhdtv5vj3" path="res://ui/components/texture_button/texture_button.gd" id="2_fklgk"]
 
-[node name="TextureButton" type="TextureButton" unique_id=1687232378]
+[node name="Control" type="Control" unique_id=697566531]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+script = ExtResource("2_fklgk")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1236507866]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -99.0
-offset_top = 27.0
-offset_right = -35.0
-offset_bottom = 91.0
+offset_left = -93.99988
+offset_right = 426.00012
+offset_bottom = 520.0
 grow_horizontal = 0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_pq510")
-texture_pressed = ExtResource("1_pq510")
-texture_hover = ExtResource("1_pq510")
-texture_focused = ExtResource("1_pq510")
-script = ExtResource("2_fklgk")
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("1_u1isi")
+texture_pressed = ExtResource("1_u1isi")
+texture_hover = ExtResource("1_u1isi")
+texture_disabled = ExtResource("1_u1isi")
+texture_focused = ExtResource("1_u1isi")
+stretch_mode = 5
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

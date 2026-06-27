@@ -15,7 +15,9 @@ const JUMP_SOUND: AudioStream = preload("res://entities/player/audio/Saut1.mp3")
 const LAND_SOUND: AudioStream = preload("res://entities/player/audio/Atterissage-choc.mp3")
 const footstep_sound: AudioStream = preload("res://entities/player/audio/Chat qui marche sur du metal.mp3")
 const PEAK_DISPLAY_DURATION: float = 0.2
+const IDLE_DELAY: float = 3.0
 
+var _idle_timer: float = 0.0
 var _footstep_player: AudioStreamPlayer = null
 
 var _base_speed: float
@@ -86,8 +88,6 @@ func _physics_process(delta: float) -> void:
 		if direction != 0:
 			sprite.play("run")
 			_update_direction(direction)
-		else:
-			sprite.stop()
 			
 	_update_animation(direction)	
 	_previous_velocity_y = velocity.y
@@ -138,9 +138,17 @@ func _update_animation(direction: float) -> void:
 	_peak_timer = 0.0
 
 	if direction != 0:
+		_idle_timer = 0.0
 		sprite.play("run")
 	else:
-		sprite.play("idle")
+		if sprite.animation == "jump":
+			sprite.animation = "run"
+			sprite.stop()
+		_idle_timer += get_physics_process_delta_time()
+		if _idle_timer >= IDLE_DELAY:
+			sprite.play("idle")
+		else:
+			sprite.stop()
 
 func _start_footsteps() -> void:
 	if _footstep_player != null or footstep_sound == null:

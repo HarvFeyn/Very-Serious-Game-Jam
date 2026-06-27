@@ -1,7 +1,7 @@
 extends Control
 
 @export var char_reveal_speed: float = 0.02
-@export var display_duration: float = 2.5
+@export var display_duration: float = 3.5
 @export var fade_duration: float = 0.4
 @export var weird_voice1: AudioStream = preload("res://ui/hud/ai_box/Voix1.mp3")
 @export var weird_voice2: AudioStream = preload("res://ui/hud/ai_box/Voix2.mp3")

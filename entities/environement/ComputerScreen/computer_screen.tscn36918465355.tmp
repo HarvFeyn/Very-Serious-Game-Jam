@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://bha1vjihfayta"]
+
+[ext_resource type="Script" uid="uid://jwowangxhxe7" path="res://entities/environement/ComputerScreen/computer_screen.gd" id="1_ddtsj"]
+[ext_resource type="Texture2D" uid="uid://dunviacwlxkb5" path="res://entities/environement/ComputerScreen/Tableau de bord.png" id="1_ohgmi"]
+[ext_resource type="Texture2D" uid="uid://iqmwsensq11a" path="res://entities/environement/lights/light_radial.png" id="2_ddtsj"]
+[ext_resource type="Script" uid="uid://bwerede35hgh7" path="res://entities/environement/ComputerScreen/computer_button.gd" id="3_v62ao"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v62ao"]
+bg_color = Color(0.17127568, 0.00023083508, 0.26863584, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.2, 0, 0.30980393, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0, 0, 0, 0.5647059)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1rdf"]
+radius = 32.24872
+height = 102.210205
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buu5p"]
+radius = 30.516724
+height = 98.74609
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrdfy"]
+radius = 40.496582
+height = 116.53577
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v62ao"]
+radius = 40.496582
+height = 116.53577
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iodic"]
+radius = 32.77289
+height = 88.086914
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mctdt"]
+radius = 32.248596
+height = 102.210205
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyyle"]
+radius = 42.40387
+height = 121.64978
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcbjg"]
+radius = 114.0
+height = 228.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8u45"]
+radius = 114.0
+height = 228.0
+
+[node name="ComputerScreen" type="Node2D" unique_id=1677997887]
+script = ExtResource("1_ddtsj")
+
+[node name="Border" type="Panel" parent="." unique_id=1767322397]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -660.0
+offset_top = -441.0
+offset_right = 660.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v62ao")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=305592788]
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("1_ohgmi")
+
+[node name="Buttons" type="Node2D" parent="." unique_id=1248354467]
+
+[node name="Button1" type="Area2D" parent="Buttons" unique_id=424717373]
+position = Vector2(-544, 208)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button1" unique_id=1365647307]
+position = Vector2(-6, 8)
+rotation = 0.5235988
+shape = SubResource("CapsuleShape2D_v1rdf")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button1" unique_id=61548817]
+position = Vector2(-4, 2)
+scale = Vector2(0.3, 0.3)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button2" type="Area2D" parent="Buttons" unique_id=541557780]
+position = Vector2(194, 208)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button2" unique_id=84468081]
+rotation = 0.5235988
+shape = SubResource("CapsuleShape2D_buu5p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button2" unique_id=1415189122]
+position = Vector2(-4, 2)
+scale = Vector2(0.3, 0.3)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button3" type="Area2D" parent="Buttons" unique_id=1728140028]
+position = Vector2(-456, 80)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button3" unique_id=1306833344]
+position = Vector2(-6, 8)
+rotation = 0.34906584
+shape = SubResource("CapsuleShape2D_wrdfy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button3" unique_id=1359837583]
+position = Vector2(-4, 2)
+scale = Vector2(0.4, 0.4)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button4" type="Area2D" parent="Buttons" unique_id=1794607480]
+position = Vector2(286, 78)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button4" unique_id=2033641648]
+position = Vector2(-6, 8)
+rotation = 0.34906584
+shape = SubResource("CapsuleShape2D_v62ao")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button4" unique_id=103370663]
+position = Vector2(-4, 2)
+scale = Vector2(0.4, 0.4)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button5" type="Area2D" parent="Buttons" unique_id=388560618]
+position = Vector2(-198, 210)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button5" unique_id=1832363289]
+position = Vector2(-6, 0)
+rotation = 2.443461
+shape = SubResource("CapsuleShape2D_iodic")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button5" unique_id=2058545863]
+position = Vector2(-4, 2)
+scale = Vector2(0.3, 0.3)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button6" type="Area2D" parent="Buttons" unique_id=1164744672]
+position = Vector2(542, 214)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button6" unique_id=1552556340]
+position = Vector2(-4, 4)
+rotation = 2.6179938
+shape = SubResource("CapsuleShape2D_mctdt")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button6" unique_id=1462198954]
+position = Vector2(-4, 2)
+scale = Vector2(0.3, 0.3)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button7" type="Area2D" parent="Buttons" unique_id=776947458]
+position = Vector2(-280, 80)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button7" unique_id=674468344]
+position = Vector2(-12, 6)
+rotation = -0.17453292
+shape = SubResource("CapsuleShape2D_lyyle")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button7" unique_id=1307796744]
+position = Vector2(-4, 2)
+scale = Vector2(0.4, 0.4)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button8" type="Area2D" parent="Buttons" unique_id=100283751]
+position = Vector2(456, 80)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button8" unique_id=1695111970]
+position = Vector2(-6, 8)
+rotation = -0.17453292
+shape = SubResource("CapsuleShape2D_lyyle")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button8" unique_id=1929048054]
+position = Vector2(-4, 2)
+scale = Vector2(0.4, 0.4)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button9" type="Area2D" parent="Buttons" unique_id=273310208]
+position = Vector2(360, 250)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button9" unique_id=1494749187]
+shape = SubResource("CapsuleShape2D_tcbjg")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button9" unique_id=871184195]
+position = Vector2(-4, 2)
+scale = Vector2(0.8, 0.8)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Button10" type="Area2D" parent="Buttons" unique_id=1361674025]
+position = Vector2(-376, 250)
+script = ExtResource("3_v62ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Button10" unique_id=1105768217]
+shape = SubResource("CapsuleShape2D_s8u45")
+
+[node name="PointLight2D" type="PointLight2D" parent="Buttons/Button10" unique_id=600773928]
+position = Vector2(-4, 2)
+scale = Vector2(0.8, 0.8)
+color = Color(1.1072873, 1.1218137, 0.50444496, 1)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamps" type="Node2D" parent="." unique_id=163482334]
+position = Vector2(0, -4)
+
+[node name="Lamp1" type="PointLight2D" parent="Lamps" unique_id=1243071193]
+position = Vector2(-496, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp2" type="PointLight2D" parent="Lamps" unique_id=742823982]
+position = Vector2(-388, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp3" type="PointLight2D" parent="Lamps" unique_id=584376880]
+position = Vector2(-278, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp4" type="PointLight2D" parent="Lamps" unique_id=1190337075]
+position = Vector2(-172, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp5" type="PointLight2D" parent="Lamps" unique_id=57623415]
+position = Vector2(-64, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp6" type="PointLight2D" parent="Lamps" unique_id=1586838081]
+position = Vector2(44, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp7" type="PointLight2D" parent="Lamps" unique_id=642824155]
+position = Vector2(152, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp8" type="PointLight2D" parent="Lamps" unique_id=23651611]
+position = Vector2(258, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp9" type="PointLight2D" parent="Lamps" unique_id=1828119518]
+position = Vector2(366, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")
+
+[node name="Lamp10" type="PointLight2D" parent="Lamps" unique_id=2129678007]
+position = Vector2(474, -384)
+scale = Vector2(0.2, 0.2)
+energy = 5.0
+texture = ExtResource("2_ddtsj")

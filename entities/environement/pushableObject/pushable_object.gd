@@ -2,6 +2,9 @@ extends AnimatableBody2D
 
 @export var limit_left: float = -INF
 @export var limit_right: float = INF
+
+@onready var _sprite: Sprite2D = $Sprite2D
+
 const push_sound: AudioStream = preload("res://entities/environement/pushableObject/Pousser tabouret 1.mp3")
 var _push_sound_player: AudioStreamPlayer = null
 
@@ -27,11 +30,13 @@ func _on_push_area_left_entered(body: Node2D) -> void:
 		_player_in_range = true
 		if not _is_being_pushed:
 			EventBus.interaction_available.emit("Press E to push")
+			_sprite.material.set_shader_parameter("enabled", true)
 
 func _on_push_area_left_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
 		_full_cancel()
+		_sprite.material.set_shader_parameter("enabled", false)
 
 func _on_push_area_right_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -40,11 +45,13 @@ func _on_push_area_right_entered(body: Node2D) -> void:
 		_player_in_range = true
 		if not _is_being_pushed:
 			EventBus.interaction_available.emit("Press E to push")
+			_sprite.material.set_shader_parameter("enabled", true)
 
 func _on_push_area_right_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
 		_full_cancel()
+		_sprite.material.set_shader_parameter("enabled", false)
 
 func _physics_process(delta: float) -> void:
 	if _player_ref == null:
@@ -65,6 +72,7 @@ func _physics_process(delta: float) -> void:
 
 func _start_push() -> void:
 	_is_being_pushed = true
+	_sprite.material.set_shader_parameter("enabled", false)
 	_player_ref.is_pushing = true
 	_player_ref.push_direction = _push_direction
 	_player_ref.speed = _player_ref._base_speed * _player_ref.push_speed_multiplier
@@ -95,6 +103,7 @@ func _handle_push(delta: float) -> void:
 
 func _stop_push() -> void:
 	_is_being_pushed = false
+	_sprite.material.set_shader_parameter("enabled", true)
 	if _player_ref != null:
 		_player_ref.is_pushing = false
 		_player_ref.push_direction = 0

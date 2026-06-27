@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://dunonff1bl5t1"]
 
 [ext_resource type="Script" uid="uid://cl7tgb10mfq7v" path="res://entities/environement/pushableObject/pushable_object.gd" id="1_ufw3r"]
+[ext_resource type="Shader" uid="uid://c644re4jsvyjg" path="res://shared/shader/highlight.gdshader" id="2_ib7bu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbmtq"]
+shader = ExtResource("2_ib7bu")
+shader_parameter/outline_color = Color(1, 0.9, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/enabled = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbwj5"]
 
@@ -14,6 +21,7 @@ limit_left = 350.0
 limit_right = 1200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=191429932]
+material = SubResource("ShaderMaterial_jbmtq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004040421]
 shape = SubResource("RectangleShape2D_pbwj5")

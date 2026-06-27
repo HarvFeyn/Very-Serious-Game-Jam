@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var _particles: CPUParticles2D = $LitterParticles
+@onready var _sprite: Sprite2D = $Sprite2D
 
 @export var target_door: NodePath
 @export var interaction_sound: AudioStream
@@ -24,6 +25,7 @@ func _on_body_entered(body: Node2D) -> void:
 		_player_in_range = true
 		_player_ref = body as CharacterBody2D
 		if not _is_used:
+			_sprite.material.set_shader_parameter("enabled", true)
 			if Globals.pee_level >= 1.0:
 				EventBus.interaction_available.emit("Press E to interact")
 			else:
@@ -34,6 +36,7 @@ func _on_body_exited(body: Node2D) -> void:
 		_player_in_range = false
 		if not _is_used:
 			EventBus.interaction_unavailable.emit()
+			_sprite.material.set_shader_parameter("enabled", false)
 
 func _process(_delta: float) -> void:
 	if _player_in_range and not _is_used and Globals.pee_level >= 1.0 \
@@ -42,7 +45,9 @@ func _process(_delta: float) -> void:
 
 func _trigger() -> void:
 	_is_used = true
+	_sprite.material.set_shader_parameter("enabled", false)
 	EventBus.interaction_unavailable.emit()
+	EventBus.litter_used.emit()
 	_player_ref.is_in_lock_mode = true
 	_player_ref.global_position = global_position + player_litter_offset
 	_player_ref.sprite.flip_h = true
@@ -59,7 +64,6 @@ func _trigger() -> void:
 	tween.tween_property(_particles, "initial_velocity_min", 400.0, interaction_duration)
 	tween.tween_property(_particles, "initial_velocity_max", 500.0, interaction_duration)
 	await get_tree().create_timer(interaction_duration).timeout
-	AudioManager.play_sfx(sparks_sound)
 	await get_tree().create_timer(sparks_duration).timeout
 	AudioManager.play_sfx(sparks_sound)
 	await get_tree().create_timer(sparks_duration).timeout

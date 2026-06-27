@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://6kdsxnn5mngt"]
+
+[ext_resource type="Script" uid="uid://ca1d48hnkktae" path="res://entities/environement/computer/computer.gd" id="1_olyx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olyx6"]
+size = Vector2(471, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lqwt"]
+size = Vector2(471, 317)
+
+[node name="Computer" type="StaticBody2D" unique_id=1824435954]
+script = ExtResource("1_olyx6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1637749077]
+shape = SubResource("RectangleShape2D_olyx6")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=295469489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2027171992]
+shape = SubResource("RectangleShape2D_1lqwt")

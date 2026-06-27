@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bquhtwu7npc2q"]
+
+[ext_resource type="Script" uid="uid://cryp6n60m4j4d" path="res://levels/level/level.gd" id="1_1h1ys"]
+[ext_resource type="Texture2D" uid="uid://gdxwqsvrnxhn" path="res://levels/level3/Fondlvl3.png" id="2_b7x77"]
+[ext_resource type="PackedScene" uid="uid://yjce8lolur6d" path="res://entities/environement/door/door.tscn" id="3_qfoh2"]
+[ext_resource type="PackedScene" uid="uid://colnnt376ipuu" path="res://entities/environement/wall/wall.tscn" id="4_nkbmv"]
+[ext_resource type="PackedScene" uid="uid://6kdsxnn5mngt" path="res://entities/environement/computer/computer.tscn" id="5_kgamt"]
+[ext_resource type="PackedScene" uid="uid://bha1vjihfayta" path="res://entities/environement/ComputerScreen/computer_screen.tscn" id="6_b7x77"]
+[ext_resource type="PackedScene" uid="uid://c6lu5qg242y7a" path="res://entities/environement/doorSign/door_sign.tscn" id="7_b7x77"]
+
+[node name="Level3" type="Node2D" unique_id=1345151649]
+script = ExtResource("1_1h1ys")
+camera_limit_left = 30
+camera_limit_right = 1620
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1358159489]
+position = Vector2(823, 292)
+texture = ExtResource("2_b7x77")
+
+[node name="Door" parent="." unique_id=1914781586 instance=ExtResource("3_qfoh2")]
+position = Vector2(176, 432)
+scale = Vector2(-1, 1)
+is_arrival_door = true
+reverse_door = true
+
+[node name="WallLeft" parent="." unique_id=274106288 instance=ExtResource("4_nkbmv")]
+position = Vector2(-1, 363)
+scale = Vector2(1, 1.5)
+
+[node name="WallLeft2" parent="." unique_id=1093543136 instance=ExtResource("4_nkbmv")]
+position = Vector2(1479, 363)
+scale = Vector2(1, 1.5)
+
+[node name="WallTop" parent="." unique_id=1512648783 instance=ExtResource("4_nkbmv")]
+position = Vector2(1623, -149)
+rotation = 1.5707964
+scale = Vector2(1, 5)
+
+[node name="Computer" parent="." unique_id=40684537 instance=ExtResource("5_kgamt")]
+position = Vector2(800, 424)
+computer_screen = NodePath("../ComputerScreen")
+
+[node name="CollisionShape2D" parent="Computer" index="0" unique_id=1637749077]
+position = Vector2(19.5, -36)
+
+[node name="CollisionShape2D" parent="Computer/InteractionArea" parent_id_path=PackedInt32Array(40684537, 295469489) index="0" unique_id=2027171992]
+position = Vector2(19.5, -0.5)
+
+[node name="ComputerScreen" parent="." unique_id=1677997887 instance=ExtResource("6_b7x77")]
+z_index = 7
+scale = Vector2(0.7, 0.7)
+
+[node name="DoorSign2" parent="." unique_id=966204458 instance=ExtResource("7_b7x77")]
+position = Vector2(132.00002, 144.99995)
+rotation = 0.10471976
+linked_door = NodePath("../Door")
+room_name = "Engine Room"
+
+[node name="Label" parent="DoorSign2" index="0" unique_id=844067584]
+offset_left = 1.9052734
+offset_top = 1.1705017
+offset_right = 50.905273
+offset_bottom = 27.170502
+
+[node name="SignLight" parent="DoorSign2" index="1" unique_id=1085989079]
+position = Vector2(60.048584, 14.883789)
+
+[editable path="Computer"]
+[editable path="DoorSign2"]

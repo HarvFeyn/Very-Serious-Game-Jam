@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bxycgm7rsqwe" path="res://entities/environement/litter/litter.gd" id="1_h7x66"]
 [ext_resource type="Texture2D" uid="uid://fm2bnql15q17" path="res://entities/environement/litter/Litter.png" id="1_liv5t"]
+[ext_resource type="Shader" uid="uid://c644re4jsvyjg" path="res://shared/shader/highlight.gdshader" id="2_0xvtt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yy3t"]
+shader = ExtResource("2_0xvtt")
+shader_parameter/outline_color = Color(1, 0.9, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/enabled = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liv5t"]
 size = Vector2(571, 795)
@@ -10,6 +17,7 @@ size = Vector2(571, 795)
 script = ExtResource("1_h7x66")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=797560983]
+material = SubResource("ShaderMaterial_5yy3t")
 texture = ExtResource("1_liv5t")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=430053227]

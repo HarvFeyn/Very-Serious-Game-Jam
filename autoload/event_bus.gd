@@ -24,6 +24,8 @@ signal door_unlocked(door: StaticBody2D)
 signal pee_changed(value: float)
 signal pee_full
 
+signal litter_used
+
 signal tier_advanced(tier: int)
 
 signal power_level_changed(ratio: float)

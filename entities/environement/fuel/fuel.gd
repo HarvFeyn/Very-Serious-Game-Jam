@@ -5,6 +5,7 @@ extends Node2D
 @export var fuel_offset: Vector2 = Vector2(-24, -16)
 @export var interaction_duration: float = 3.0
 @onready var _light: PointLight2D = $PointLight2D
+@onready var _sprite: Sprite2D = $Sprite2D
 
 var _player_in_range: bool = false
 var _player_ref: CharacterBody2D = null
@@ -25,22 +26,24 @@ func _on_body_entered(body: Node2D) -> void:
 		_player_ref = body as CharacterBody2D
 		if not _is_used:
 			EventBus.interaction_available.emit("Press E to push fuel")
+			_sprite.material.set_shader_parameter("enabled", true)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
 		if not _is_used:
 			EventBus.interaction_unavailable.emit()
-
+			_sprite.material.set_shader_parameter("enabled", false)
+			
 func _process(_delta: float) -> void:
 	if _player_in_range and not _is_used and Input.is_action_just_pressed("interact"):
 		_trigger()
 
 func _trigger() -> void:
 	_is_used = true
+	_sprite.material.set_shader_parameter("enabled", false)
 	EventBus.interaction_unavailable.emit()
 	
-
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "global_position", global_position + fuel_offset, interaction_duration)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

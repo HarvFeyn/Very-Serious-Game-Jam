@@ -24,9 +24,15 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1124428525]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -201.5
+offset_right = 254.0
+offset_bottom = 201.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -61,13 +67,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Game design & gameplay — designed together by the whole team"
 
-[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1520394810]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Barvo les lesbiennes"
-
 [node name="BackToMenu" parent="MarginContainer/VBoxContainer" unique_id=1373872495 instance=ExtResource("1_vqfe7")]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

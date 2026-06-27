@@ -9,7 +9,7 @@ enum PowerTier {
 }
 
 const TIER_DURATIONS: Dictionary = {
-	PowerTier.TIER_1: 45.0,
+	PowerTier.TIER_1: 50.0,
 	PowerTier.TIER_2: 80.0,
 	PowerTier.TIER_3: 120.0,
 }
@@ -19,12 +19,12 @@ const WARNING_COLOR: Color = GameColors.WARNING_COLOR
 const CRITICAL_COLOR: Color = GameColors.CRITICAL_COLOR
 const DEPLETED_COLOR: Color = GameColors.DEPLETED_COLOR
 
-const WARNING_THRESHOLD: float = 30.0
-const CRITICAL_THRESHOLD: float = 20.0
+const WARNING_THRESHOLD: float = 35.0
+const CRITICAL_THRESHOLD: float = 25.0
 const STEP_TWEEN_DURATION: float = 0.5
 const WHEEL_EXIT_DURATION: float = 1.0
 
-var energy_per_alternation: float = 1
+var energy_per_alternation: float = 1.5
 var _wheel_is_active: bool = false
 var _critical_emitted: bool = false
 

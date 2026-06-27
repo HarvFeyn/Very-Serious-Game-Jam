@@ -5,6 +5,8 @@ extends Node2D
 @export var _volume_drink: int = 10
 @export var player_lock_position: Vector2
 
+@onready var _sprite: Sprite2D = $Sprite2D
+
 var _player_in_range: bool = false
 var _player_ref: CharacterBody2D = null
 var _is_drinking: bool = false
@@ -23,13 +25,15 @@ func _on_body_entered(body: Node2D) -> void:
 		_player_ref = body as CharacterBody2D
 		if Globals.pee_level < 1.0 and not _is_used:
 			EventBus.interaction_available.emit("Hold E to drink")
-
+			_sprite.material.set_shader_parameter("enabled", true)
+			
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = false
 		_stop_drinking()
 		EventBus.interaction_unavailable.emit()
-
+		_sprite.material.set_shader_parameter("enabled", false)
+		
 func _process(delta: float) -> void:
 	if not _player_in_range or Globals.pee_level >= 1.0 or _is_used:
 		return
@@ -75,6 +79,7 @@ func _fill(delta: float) -> void:
 	EventBus.pee_changed.emit(Globals.pee_level)
 	if Globals.pee_level >= 1.0:
 		_stop_drinking()
+		_sprite.material.set_shader_parameter("enabled", false)
 		_is_used = true
 		EventBus.pee_full.emit()
 		EventBus.interaction_unavailable.emit()

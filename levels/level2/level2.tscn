@@ -25,6 +25,9 @@ size = Vector2(21.111023, 114.33334)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbwgw"]
 size = Vector2(25.277771, 112.222244)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2q84"]
+size = Vector2(173, 11)
+
 [node name="Level2" type="Node2D" unique_id=1041921582]
 position = Vector2(0, -21)
 script = ExtResource("1_tr3t4")
@@ -42,6 +45,7 @@ reverse_door = true
 [node name="DoorRight" parent="." unique_id=1188406596 instance=ExtResource("2_mh2fd")]
 position = Vector2(1718, 429)
 advances_tier = true
+quest_index = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=814441143]
 position = Vector2(953, 292)
@@ -121,7 +125,7 @@ linked_door = NodePath("../DoorRight")
 room_name = "Cockpit"
 
 [node name="Valve" parent="." unique_id=853984428 instance=ExtResource("9_db1li")]
-position = Vector2(1162, 204)
+position = Vector2(1050, 36)
 scale = Vector2(0.08, 0.08)
 engine = NodePath("../Engine")
 turn_sound = ExtResource("13_1gyy6")
@@ -134,6 +138,30 @@ z_index = 5
 position = Vector2(1582, 299)
 scale = Vector2(-1, 1)
 texture = ExtResource("10_2xai0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=859479254]
+position = Vector2(1257, 258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=151857113]
+position = Vector2(85.5, 5.5)
+shape = SubResource("RectangleShape2D_h2q84")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=2023227964]
+offset_right = 172.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1391270915]
+position = Vector2(1043, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=286447352]
+position = Vector2(85.5, 5.5)
+shape = SubResource("RectangleShape2D_h2q84")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=563876111]
+offset_right = 172.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
 
 [editable path="Engine"]
 [editable path="Fuel"]

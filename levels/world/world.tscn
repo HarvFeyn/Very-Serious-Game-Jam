@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbm7gqyaousm4" path="res://entities/player/player.tscn" id="2_b8p08"]
 [ext_resource type="PackedScene" uid="uid://dlv7u0e2agwgi" path="res://levels/level2/level2.tscn" id="3_8gvdk"]
 [ext_resource type="PackedScene" uid="uid://csufiw6mlv0eq" path="res://levels/level1/level1.tscn" id="3_b8p08"]
+[ext_resource type="PackedScene" uid="uid://bquhtwu7npc2q" path="res://levels/level3/level3.tscn" id="4_cjrbv"]
 [ext_resource type="PackedScene" uid="uid://kbt4riqbv72o" path="res://entities/environement/floor/floor.tscn" id="4_le7ry"]
 [ext_resource type="Script" uid="uid://dx53nf4b3r7op" path="res://levels/testLevel/canvas_modulate.gd" id="5_h0il2"]
 
@@ -22,7 +23,7 @@ visible = false
 target_door = NodePath("../../Level2/DoorLeft")
 
 [node name="DoorLeft" parent="Level1" index="2" unique_id=9861939]
-target_door = NodePath("../../Level2/DoorRight")
+target_door = NodePath(".")
 
 [node name="Level2" parent="." unique_id=1041921582 instance=ExtResource("3_8gvdk")]
 
@@ -30,7 +31,12 @@ target_door = NodePath("../../Level2/DoorRight")
 target_door = NodePath("../../Level1/DoorRight")
 
 [node name="DoorRight" parent="Level2" index="1" unique_id=1188406596]
-target_door = NodePath("../../Level1/DoorLeft")
+target_door = NodePath("../../Level3/Door")
+
+[node name="Level3" parent="." unique_id=1345151649 instance=ExtResource("4_cjrbv")]
+
+[node name="Door" parent="Level3" index="1" unique_id=1914781586]
+target_door = NodePath("../../Level2/DoorRight")
 
 [node name="Floor" parent="." unique_id=1618967398 instance=ExtResource("4_le7ry")]
 position = Vector2(0, 567)
@@ -59,10 +65,12 @@ script = ExtResource("5_h0il2")
 [editable path="Level1/DoorSign2"]
 [editable path="Level1/JumpTrigger"]
 [editable path="Level1/JumpTrigger2"]
+[editable path="Level1/Computer"]
 [editable path="Level2"]
 [editable path="Level2/Engine"]
 [editable path="Level2/Fuel"]
 [editable path="Level2/PushableObject"]
 [editable path="Level2/DoorSign2"]
 [editable path="Level2/Valve"]
+[editable path="Level3"]
 [editable path="Player"]

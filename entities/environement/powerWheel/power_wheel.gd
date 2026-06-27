@@ -12,6 +12,7 @@ const PLAYER_WHEEL_ROTATION: float = 0.3
 @onready var _key_hints: Node2D = $KeyHints
 @onready var _key_left: Node2D = $KeyHints/KeyLeft
 @onready var _key_right: Node2D = $KeyHints/KeyRight
+@onready var _fond_sprite: Sprite2D = $Fond
 
 @export var success_sound: AudioStream
 @export var note_sounds: Array[AudioStream] = []
@@ -34,12 +35,14 @@ func _on_body_entered(body: Node2D) -> void:
 		player_in_range = true
 		if not _is_active and not _is_on_cooldown:
 			EventBus.interaction_available.emit("Press E to spin the wheel")
+			_fond_sprite.material.set_shader_parameter("enabled", true)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = false
 		if not _is_active and not _is_on_cooldown:
 			EventBus.interaction_unavailable.emit()
+			_fond_sprite.material.set_shader_parameter("enabled", false)
 
 func _process(delta: float) -> void:
 	if player_in_range and not _is_active and not _is_on_cooldown and Input.is_action_just_pressed("interact"):
@@ -57,6 +60,7 @@ func _process(delta: float) -> void:
 
 func _start_wheel_mode() -> void:
 	_is_active = true
+	_fond_sprite.material.set_shader_parameter("enabled", false)
 	_last_direction = 0
 	var notes_for_tier: int = max(int(note_sounds.size() * float(PowerManager.current_tier + 1) / 3.0), 1)
 	_next_note_index = int(PowerManager.get_energy_ratio() * float(notes_for_tier))
