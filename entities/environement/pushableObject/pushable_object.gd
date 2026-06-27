@@ -62,7 +62,6 @@ func _physics_process(delta: float) -> void:
 			_start_push()
 		return
 
-	# vérifie si le joueur saute ou va dans la direction opposée
 	var input_direction: int = sign(Input.get_axis("move_left", "move_right")) as int
 	if not _player_ref.is_on_floor() or (input_direction != 0 and input_direction != _push_direction):
 		_stop_push()

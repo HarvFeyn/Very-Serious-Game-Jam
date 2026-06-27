@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://c8lrvm6deegbt" path="res://levels/level1/DoorRightHalf.png" id="40_8ghno"]
 [ext_resource type="PackedScene" uid="uid://dr8c1ie0q37jd" path="res://ui/hud/jumpTrigger/jump_trigger.tscn" id="41_mcum3"]
 [ext_resource type="PackedScene" uid="uid://2qnbwf53ukhn" path="res://entities/environement/cable/cable.tscn" id="43_nc60i"]
+[ext_resource type="Texture2D" uid="uid://kjn8j5knhekt" path="res://levels/level1/petit boitier trop mignon.png" id="44_qye81"]
 
 [node name="Level1" type="Node2D" unique_id=203581162]
 script = ExtResource("1_ps0pm")
@@ -53,7 +54,7 @@ camera_limit_bottom = 648
 
 [node name="GalaxyBackground" type="Sprite2D" parent="." unique_id=1975284196]
 z_index = -10
-position = Vector2(1766, 223)
+position = Vector2(1287, 605)
 scale = Vector2(2, 2)
 texture = ExtResource("2_wwup8")
 script = ExtResource("3_htvhs")
@@ -124,7 +125,7 @@ player_lock_position = Vector2(-70, 170)
 position = Vector2(2049, 472)
 
 [node name="Litter" parent="." unique_id=1674713658 instance=ExtResource("12_f7y8c")]
-position = Vector2(2640, 479)
+position = Vector2(2640, 466)
 scale = Vector2(0.5, 0.5)
 target_door = NodePath("../DoorRight")
 interaction_sound = ExtResource("37_8ghno")
@@ -182,18 +183,24 @@ texture = ExtResource("40_8ghno")
 position = Vector2(1719, 563)
 
 [node name="CollisionShape2D" parent="JumpTrigger" index="0" unique_id=520894993]
-position = Vector2(105.5, 23.5)
+position = Vector2(100.5, 23.5)
 
 [node name="JumpTrigger2" parent="." unique_id=902714190 instance=ExtResource("41_mcum3")]
 position = Vector2(1870, 328)
 permanent_dismiss = true
 
 [node name="CollisionShape2D" parent="JumpTrigger2" index="0" unique_id=520894993]
-position = Vector2(91.5, -30.25)
+position = Vector2(85.5, -26.25)
 
 [node name="Cable" parent="." unique_id=402520773 instance=ExtResource("43_nc60i")]
 position = Vector2(381, 388)
 scale = Vector2(0.22, 0.22)
+
+[node name="boitier" type="Sprite2D" parent="." unique_id=1588713981]
+position = Vector2(2975, 346.00003)
+rotation = 0.017453292
+scale = Vector2(-0.25, 0.25)
+texture = ExtResource("44_qye81")
 
 [editable path="PowerWheel"]
 [editable path="SafeZone"]

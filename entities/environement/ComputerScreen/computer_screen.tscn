@@ -305,6 +305,6 @@ energy = 5.0
 texture = ExtResource("2_ddtsj")
 
 [node name="Patoune" type="Sprite2D" parent="." unique_id=1942297936]
-position = Vector2(2, 365)
+position = Vector2(15, 365)
 rotation = 3.1415927
 texture = ExtResource("9_mctdt")

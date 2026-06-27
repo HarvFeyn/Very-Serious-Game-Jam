@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var collision_offset_x: float = 29.0
 @export var collision_offset_y: float = 5.0
 
-@export var speed: float = 400.0
+@export var speed: float = 500.0
 @export var push_speed_multiplier: float = 0.5
 @export var jump_force: float = -750.0
 @export var gravity: float = 1500.0
@@ -123,15 +123,15 @@ func _update_animation(direction: float) -> void:
 		if velocity.y >= 0 and _previous_velocity_y < 0:
 			_jump_peak_reached = true
 			_peak_timer = PEAK_DISPLAY_DURATION
-			sprite.frame = 1  # sommet
+			sprite.frame = 1
 
 		if _peak_timer > 0.0:
 			_peak_timer -= get_physics_process_delta_time()
-			sprite.frame = 1  # garde le sommet affiché
+			sprite.frame = 1
 		elif _jump_peak_reached:
-			sprite.frame = 2  # descente
+			sprite.frame = 2
 		else:
-			sprite.frame = 0  # montée
+			sprite.frame = 0
 		return
 
 	_jump_peak_reached = false

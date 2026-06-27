@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dq15ucng0q6ld" path="res://core/credits/credits.gd" id="1_nogde"]
 [ext_resource type="PackedScene" uid="uid://do6rp836y5wbe" path="res://ui/components/custom_button/CustomButton.tscn" id="1_vqfe7"]
 [ext_resource type="Theme" uid="uid://do17k3k7dl5m8" path="res://shared/themes/global_theme.tres" id="1_ywwvp"]
+[ext_resource type="Texture2D" uid="uid://cavcr2ucbsohq" path="res://core/credits/1.png" id="3_n1yjs"]
+[ext_resource type="Texture2D" uid="uid://dsgcpe78snmxf" path="res://core/credits/2.png" id="4_3cung"]
 
 [node name="Credits" type="Control" unique_id=1845304726]
 layout_mode = 3
@@ -11,65 +13,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("1_ywwvp")
 script = ExtResource("1_nogde")
+frame1 = ExtResource("3_n1yjs")
+frame2 = ExtResource("4_3cung")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1255195472]
+[node name="Background" type="TextureRect" parent="." unique_id=1319281102]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 768.0
+offset_bottom = 431.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_n1yjs")
+stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1124428525]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -254.0
-offset_top = -201.5
-offset_right = 254.0
-offset_bottom = 201.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1835226347]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1432714665]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Illustration — Anna Koné"
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=424380447]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Development — Paul Roger"
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1831471706]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Production & UI design — Off Périanin"
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1268448415]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Music, theme & VFX — Valentin Lalbia"
-
-[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1729841251]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Game design & gameplay — designed together by the whole team"
-
-[node name="BackToMenu" parent="MarginContainer/VBoxContainer" unique_id=1373872495 instance=ExtResource("1_vqfe7")]
-layout_mode = 2
+[node name="BackToMenu" parent="." unique_id=1373872495 instance=ExtResource("1_vqfe7")]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 40.5
+offset_right = 1098.0
+offset_bottom = 65.5
 size_flags_horizontal = 4
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

@@ -10,9 +10,10 @@ const LAMPS_REQUIRED: int = 10
 const BASE_TIME: float = 3.0
 const MIN_TIME: float = 0.3
 const ARM_TWEEN_SPEED: float = 0.15
-const ARM_MAX_X: float = 200.0
-const ARM_MAX_Y: float = 40.0
-const ARM_MAX_ROTATION: float = 0.3
+const ARM_MAX_X: float = 250.0
+const ARM_MAX_Y: float = 200.0
+const ARM_MAX_ROTATION: float = 1.0
+const ARM_BASE_ROTATION: float = PI
 
 var _current_progress: int = 0
 var _button_timer: float = 0.0
@@ -25,6 +26,7 @@ var _lamps: Array = []
 
 var _arm_tween: Tween
 var _arm_base_position: Vector2
+var _arm_base_rotation: float = ARM_BASE_ROTATION
 
 func _ready() -> void:
 	_buttons = $Buttons.get_children()
@@ -34,7 +36,10 @@ func _ready() -> void:
 	EventBus.game_reset.connect(_on_game_reset)
 	_current_progress = 0
 	_current_button_time = BASE_TIME
-	
+	if arm_sprite:
+		_arm_base_position = arm_sprite.position
+		arm_sprite.rotation = ARM_BASE_ROTATION
+		
 func start(player: CharacterBody2D) -> void:
 	_set_music_lowpass(true)
 	_player_ref = player
@@ -68,7 +73,10 @@ func _process(delta: float) -> void:
 	_button_timer -= delta
 	if _button_timer <= 0.0:
 		_on_timeout()
-
+		
+	if arm_sprite:
+		_update_arm()
+		
 func on_button_clicked(correct: bool) -> void:
 	if not _is_running:
 		return
@@ -173,7 +181,11 @@ func _exit() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	if _player_ref:
 		_player_ref.controls_enabled = true
-
+	
+	if arm_sprite:
+		arm_sprite.position = _arm_base_position
+		arm_sprite.rotation = ARM_BASE_ROTATION
+		
 func _start_ambient() -> void:
 	if ambient_sound == null:
 		return
@@ -197,3 +209,23 @@ func _stop_ambient() -> void:
 func _set_music_lowpass(enabled: bool) -> void:
 	var bus_index: int = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_effect_enabled(bus_index, 0, enabled)
+
+func _update_arm() -> void:
+	var mouse_pos: Vector2 = to_local(get_viewport().get_mouse_position())
+	var diff: Vector2 = mouse_pos - _arm_base_position
+
+	var target_x: float = clamp(diff.x * 0.3, -ARM_MAX_X, ARM_MAX_X)
+	var target_y: float = clamp(-abs(diff.y) * 0.1, -ARM_MAX_Y, 0.0)
+
+	var target_rotation: float = _arm_base_rotation + clamp(diff.x * 0.002, -ARM_MAX_ROTATION, ARM_MAX_ROTATION)
+
+	var target_pos: Vector2 = _arm_base_position + Vector2(target_x, target_y)
+
+	if _arm_tween:
+		_arm_tween.kill()
+	_arm_tween = create_tween()
+	_arm_tween.set_parallel(true)
+	_arm_tween.tween_property(arm_sprite, "position", target_pos, ARM_TWEEN_SPEED)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_arm_tween.tween_property(arm_sprite, "rotation", target_rotation, ARM_TWEEN_SPEED)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

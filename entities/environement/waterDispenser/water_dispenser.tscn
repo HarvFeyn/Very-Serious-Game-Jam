@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://n8mtc7o8y2c7"]
 
 [ext_resource type="Script" uid="uid://cjeerrg2yrm4h" path="res://entities/environement/waterDispenser/water_dispenser.gd" id="1_7wge4"]
-[ext_resource type="Texture2D" uid="uid://cdakw3yvy3sfd" path="res://entities/environement/waterDispenser/WaterDispenser.png" id="1_erd5l"]
 [ext_resource type="AudioStream" uid="uid://c5djiebq5tad0" path="res://entities/environement/waterDispenser/Fontaine.mp3" id="2_anbpi"]
 [ext_resource type="Shader" uid="uid://c644re4jsvyjg" path="res://shared/shader/highlight.gdshader" id="3_adfud"]
+[ext_resource type="Texture2D" uid="uid://2obnorsvqsqb" path="res://entities/environement/waterDispenser/Distributeur d'eau.png" id="4_adfud"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dvseh"]
 shader = ExtResource("3_adfud")
@@ -23,7 +23,7 @@ drink_sound = ExtResource("2_anbpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2061411756]
 material = SubResource("ShaderMaterial_dvseh")
-texture = ExtResource("1_erd5l")
+texture = ExtResource("4_adfud")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1762136964]
 

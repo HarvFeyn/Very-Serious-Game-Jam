@@ -12,14 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b4k0x23w81q8q" path="res://entities/player/Idle 2.png" id="5_221hk"]
 [ext_resource type="Texture2D" uid="uid://c3ol3aerx4yjj" path="res://entities/player/Saut 1.png" id="6_eyb6c"]
 [ext_resource type="Texture2D" uid="uid://bfkp10pbhcqx0" path="res://entities/player/Course vite vite 1.png" id="6_j3ovn"]
-[ext_resource type="Texture2D" uid="uid://b1pogh0qedoej" path="res://ui/hud/pressKey/touch_e0.png" id="6_qiwj3"]
 [ext_resource type="Script" uid="uid://b8kpgv7tx5o81" path="res://entities/player/interaction_hint.gd" id="7_26q78"]
 [ext_resource type="Texture2D" uid="uid://caluw0mfx2dng" path="res://entities/player/Saut 2.png" id="7_221hk"]
 [ext_resource type="Texture2D" uid="uid://bvxg6wg8vyp2v" path="res://entities/player/Course vite vite 2.png" id="7_afbqv"]
 [ext_resource type="Texture2D" uid="uid://xkp4lnomkq38" path="res://ui/hud/pressKey/sprite_touch_space0.png" id="8_26q78"]
 [ext_resource type="Texture2D" uid="uid://dpm78e3y7m0xo" path="res://entities/player/Saut 3.png" id="8_ghoj8"]
-[ext_resource type="Texture2D" uid="uid://bxu6h0l2fo0ri" path="res://ui/hud/pressKey/touch_e1.png" id="8_wvtmh"]
 [ext_resource type="Script" uid="uid://6u1prdl1obqb" path="res://entities/player/jump_hint.gd" id="9_bectd"]
+[ext_resource type="Texture2D" uid="uid://552yql4qqq2y" path="res://ui/hud/pressKey/sprite_e0.png" id="16_eyb6c"]
+[ext_resource type="Texture2D" uid="uid://dthupt1k2q72h" path="res://ui/hud/pressKey/sprite_e1.png" id="18_221hk"]
 [ext_resource type="Texture2D" uid="uid://bpwlj1ql28paf" path="res://ui/hud/pressKey/sprite_touch_space2.png" id="19_we0b7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bectd"]
@@ -111,7 +111,7 @@ script = ExtResource("1_symyc")
 scale = Vector2(0.28, 0.28)
 sprite_frames = SubResource("SpriteFrames_bectd")
 animation = &"idle"
-frame_progress = 0.42072773
+frame_progress = 0.011331141
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313738173]
 rotation = 1.5707964
@@ -128,10 +128,10 @@ position_smoothing_enabled = true
 z_index = 12
 position = Vector2(40, 91)
 scale = Vector2(0.04, 0.04)
-texture = ExtResource("6_qiwj3")
+texture = ExtResource("16_eyb6c")
 script = ExtResource("7_26q78")
-texture_released = ExtResource("6_qiwj3")
-texture_pressed = ExtResource("8_wvtmh")
+texture_released = ExtResource("16_eyb6c")
+texture_pressed = ExtResource("18_221hk")
 
 [node name="JumpHint" type="Sprite2D" parent="." unique_id=384314556]
 z_index = 12
